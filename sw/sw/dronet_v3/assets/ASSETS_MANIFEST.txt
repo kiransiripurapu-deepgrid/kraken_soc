@@ -1,0 +1,24 @@
+DroNet assets vendored into mini_kraken
+======================================
+
+Main project:
+  C:/Users/kiran/fpga_project/mini_kraken/scripts/kraken_func_a7/kraken_func_a7.xpr
+
+Vendored asset bundle:
+  sw/dronet_v3/assets/tiny_pulp_dronet_v3_dory
+
+Copied from:
+  C:/Users/kiran/fpga_project/pulp_workspace/pulp-dronet/tiny-pulp-dronet-v3/drone-applications/gap8-dronet-app/tiny-pulp-dronet-v3/DORY_network
+
+Contents:
+  - inputs.hex
+  - ConvBNRelu*_weights.hex
+  - ConvDWBNRelu*_weights.hex
+  - MatMul14_weights.hex
+  - inc/
+  - src/
+
+Status:
+  - Assets are present locally in the main repo.
+  - Current functional verification still uses sw/dronet_v3/dronet_v3_driver.mem.
+  - Full real-weight / full-network execution is not yet implemented.

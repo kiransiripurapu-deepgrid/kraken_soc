@@ -1,0 +1,28 @@
+{
+  "stage": "stage0",
+  "selected_bank": "bank1",
+  "bank0": {
+    "line_count": 10000,
+    "known_count": 10000,
+    "unknown_count": 0,
+    "nonzero_known_count": 0,
+    "first_nonzero": null,
+    "first_unknown": null
+  },
+  "bank1": {
+    "line_count": 10000,
+    "known_count": 9169,
+    "unknown_count": 831,
+    "nonzero_known_count": 4169,
+    "first_nonzero": {
+      "index": 0,
+      "value": "f9f9f9f9"
+    },
+    "first_unknown": {
+      "index": 32,
+      "value": "xxxxxxxx"
+    }
+  },
+  "output_hex": "sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex",
+  "sanitization": "unknown words replaced with 00000000"
+}

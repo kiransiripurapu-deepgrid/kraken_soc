@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r XBAR_PERIPH /c/Users/kiran/fpga_project/mini_kraken/ips --include=*.sv)",
+      "Bash(find /c/Users/kiran/fpga_project/mini_kraken -name *.sv)",
+      "Bash(xargs grep:*)",
+      "Bash(ls /c/Users/kiran/fpga_project/mini_kraken/scripts/kraken_func/*.xpr)",
+      "Bash(ls /c/Users/kiran/fpga_project/mini_kraken/ips/register_interface/*.sv)",
+      "Bash(where vivado:*)",
+      "Read(//c/Xilinx/Vivado/**)",
+      "Bash(ls -la /c/Users/kiran/fpga_project/mini_kraken/scripts/kraken_func_a7/*.log)",
+      "Bash(ls -la /c/Users/kiran/fpga_project/mini_kraken/scripts/kraken_func_a7/*.jou)",
+      "Read(//c/Users/kiran/fpga project 2/mini_kraken/scripts/kraken_func_a7/**)",
+      "Bash(find 'C:/Users/kiran/fpga project 2/mini_kraken/scripts/kraken_func_a7/kraken_func_a7.runs' -name *.xdc)",
+      "Read(//c/Users/kiran/fpga project 2/mini_kraken/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\kiran\\fpga project 2\\mini_kraken\\scripts\\kraken_func_a7",
+      "C:\\Users\\kiran\\fpga project 2\\mini_kraken\\constraints",
+      "C:\\Users\\kiran\\fpga project 2\\mini_kraken\\ips\\cutie\\rtl"
+    ]
+  }
+}

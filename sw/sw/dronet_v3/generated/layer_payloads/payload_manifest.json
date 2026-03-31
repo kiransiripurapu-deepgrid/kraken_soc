@@ -1,0 +1,598 @@
+{
+  "source_manifest": "sw/dronet_v3/generated/dronet_v3_manifest.json",
+  "input_payload": {
+    "path": "sw/dronet_v3/generated/layer_payloads/stage0_input_words.hex",
+    "word_count": 10000,
+    "note": "Only stage0 input activations are directly available in the exported bundle."
+  },
+  "derived_payloads": {
+    "stage0_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex",
+      "note": "Derived from CUTIE stage0 preload simulation output.",
+      "summary": {
+        "stage": "stage0",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 10000,
+          "known_count": 10000,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 10000,
+          "known_count": 9169,
+          "unknown_count": 831,
+          "nonzero_known_count": 4169,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 32,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage1_maxpool_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage1_maxpool_output_words.hex",
+      "note": "Derived by applying the exported layerMaxPool1 operation to stage0_output_words.hex.",
+      "summary": {
+        "input_hex": "sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex",
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage1_maxpool_output_words.hex",
+        "input_shape_hwc": [
+          100,
+          100,
+          4
+        ],
+        "output_shape_hwc": [
+          50,
+          50,
+          4
+        ],
+        "pool_kernel": [
+          2,
+          2
+        ],
+        "stride": [
+          2,
+          2
+        ],
+        "word_count": 2500,
+        "first_words": [
+          "f9f9f9f9",
+          "f9f9f9f9",
+          "f9f9f9f9",
+          "f9f9f9f9",
+          "f9f9f9f9",
+          "f9f9f9f9",
+          "f9f9f9f9",
+          "f9f9f9f9"
+        ]
+      }
+    },
+    "stage2_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage2_output_words.hex",
+      "note": "Derived from CUTIE stage2 preload simulation output.",
+      "summary": {
+        "stage": "stage2",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 625,
+          "known_count": 625,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 625,
+          "known_count": 575,
+          "unknown_count": 50,
+          "nonzero_known_count": 263,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 32,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage2_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage3_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage3_output_words.hex",
+      "note": "Derived from CUTIE stage3 preload simulation output.",
+      "summary": {
+        "stage": "stage3",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 625,
+          "known_count": 625,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 625,
+          "known_count": 576,
+          "unknown_count": 49,
+          "nonzero_known_count": 264,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage3_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage4_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage4_output_words.hex",
+      "note": "Derived from CUTIE stage4 preload simulation output.",
+      "summary": {
+        "stage": "stage4",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 625,
+          "known_count": 625,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 625,
+          "known_count": 576,
+          "unknown_count": 49,
+          "nonzero_known_count": 264,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage4_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage5_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage5_output_words.hex",
+      "note": "Derived from CUTIE stage5 preload simulation output.",
+      "summary": {
+        "stage": "stage5",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 625,
+          "known_count": 625,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 625,
+          "known_count": 576,
+          "unknown_count": 49,
+          "nonzero_known_count": 264,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage5_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage6_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage6_output_words.hex",
+      "note": "Derived from CUTIE stage6 preload simulation output.",
+      "summary": {
+        "stage": "stage6",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 169,
+          "known_count": 169,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 169,
+          "known_count": 158,
+          "unknown_count": 11,
+          "nonzero_known_count": 74,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage6_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage7_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage7_output_words.hex",
+      "note": "Derived from CUTIE stage7 preload simulation output.",
+      "summary": {
+        "stage": "stage7",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 338,
+          "known_count": 338,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 338,
+          "known_count": 313,
+          "unknown_count": 25,
+          "nonzero_known_count": 144,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage7_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage8_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage8_output_words.hex",
+      "note": "Derived from CUTIE stage8 preload simulation output.",
+      "summary": {
+        "stage": "stage8",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 338,
+          "known_count": 338,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 338,
+          "known_count": 313,
+          "unknown_count": 25,
+          "nonzero_known_count": 144,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage8_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage9_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage9_output_words.hex",
+      "note": "Derived from CUTIE stage9 preload simulation output.",
+      "summary": {
+        "stage": "stage9",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 338,
+          "known_count": 338,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 338,
+          "known_count": 313,
+          "unknown_count": 25,
+          "nonzero_known_count": 144,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage9_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage10_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage10_output_words.hex",
+      "note": "Derived from CUTIE stage10 preload simulation output.",
+      "summary": {
+        "stage": "stage10",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 98,
+          "known_count": 98,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 98,
+          "known_count": 93,
+          "unknown_count": 5,
+          "nonzero_known_count": 44,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage10_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage11_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage11_output_words.hex",
+      "note": "Derived from CUTIE stage11 preload simulation output.",
+      "summary": {
+        "stage": "stage11",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 196,
+          "known_count": 196,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 196,
+          "known_count": 182,
+          "unknown_count": 14,
+          "nonzero_known_count": 84,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage11_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    },
+    "stage12_output": {
+      "path": "sw/dronet_v3/generated/layer_payloads/stage12_output_words.hex",
+      "note": "Derived from CUTIE stage12 preload simulation output.",
+      "summary": {
+        "stage": "stage12",
+        "selected_bank": "bank1",
+        "bank0": {
+          "line_count": 196,
+          "known_count": 196,
+          "unknown_count": 0,
+          "nonzero_known_count": 0,
+          "first_nonzero": null,
+          "first_unknown": null
+        },
+        "bank1": {
+          "line_count": 196,
+          "known_count": 182,
+          "unknown_count": 14,
+          "nonzero_known_count": 84,
+          "first_nonzero": {
+            "index": 0,
+            "value": "f9f9f9f9"
+          },
+          "first_unknown": {
+            "index": 38,
+            "value": "xxxxxxxx"
+          }
+        },
+        "output_hex": "sw/dronet_v3/generated/layer_payloads/stage12_output_words.hex",
+        "sanitization": "unknown words replaced with 00000000"
+      }
+    }
+  },
+  "layers": [
+    {
+      "index": 0,
+      "name": "layerConvBNRelu0",
+      "op": "conv",
+      "kernel_size": 5,
+      "weight_blob": "ConvBNRelu0_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage00_layerConvBNRelu0_weights.hex",
+      "weight_word_count": 41,
+      "activation_payload_available": true,
+      "activation_note": null
+    },
+    {
+      "index": 1,
+      "name": "layerMaxPool1",
+      "op": "maxpool",
+      "kernel_size": null,
+      "weight_blob": null,
+      "weight_blob_words_hex": null,
+      "weight_word_count": 0,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage0 output payload sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex."
+    },
+    {
+      "index": 2,
+      "name": "layerConvDWBNRelu2",
+      "op": "depthwise_conv",
+      "kernel_size": 3,
+      "weight_blob": "ConvDWBNRelu2_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage02_layerConvDWBNRelu2_weights.hex",
+      "weight_word_count": 25,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived layerMaxPool1 output payload sw/dronet_v3/generated/layer_payloads/stage1_maxpool_output_words.hex."
+    },
+    {
+      "index": 3,
+      "name": "layerConvBNRelu3",
+      "op": "pointwise_conv",
+      "kernel_size": 1,
+      "weight_blob": "ConvBNRelu3_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage03_layerConvBNRelu3_weights.hex",
+      "weight_word_count": 20,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage2 output payload sw/dronet_v3/generated/layer_payloads/stage2_output_words.hex."
+    },
+    {
+      "index": 4,
+      "name": "layerConvDWBNRelu4",
+      "op": "depthwise_conv",
+      "kernel_size": 3,
+      "weight_blob": "ConvDWBNRelu4_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage04_layerConvDWBNRelu4_weights.hex",
+      "weight_word_count": 25,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage3 output payload sw/dronet_v3/generated/layer_payloads/stage3_output_words.hex."
+    },
+    {
+      "index": 5,
+      "name": "layerConvBNRelu3",
+      "op": "pointwise_conv",
+      "kernel_size": 1,
+      "weight_blob": "ConvBNRelu5_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage05_layerConvBNRelu3_weights.hex",
+      "weight_word_count": 20,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage4 output payload sw/dronet_v3/generated/layer_payloads/stage4_output_words.hex."
+    },
+    {
+      "index": 6,
+      "name": "layerConvDWBNRelu6",
+      "op": "depthwise_conv",
+      "kernel_size": 3,
+      "weight_blob": "ConvDWBNRelu6_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage06_layerConvDWBNRelu6_weights.hex",
+      "weight_word_count": 25,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage5 output payload sw/dronet_v3/generated/layer_payloads/stage5_output_words.hex."
+    },
+    {
+      "index": 7,
+      "name": "layerConvBNRelu7",
+      "op": "pointwise_conv",
+      "kernel_size": 1,
+      "weight_blob": "ConvBNRelu7_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage07_layerConvBNRelu7_weights.hex",
+      "weight_word_count": 40,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage6 output payload sw/dronet_v3/generated/layer_payloads/stage6_output_words.hex."
+    },
+    {
+      "index": 8,
+      "name": "layerConvDWBNRelu8",
+      "op": "depthwise_conv",
+      "kernel_size": 3,
+      "weight_blob": "ConvDWBNRelu8_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage08_layerConvDWBNRelu8_weights.hex",
+      "weight_word_count": 50,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage7 output payload sw/dronet_v3/generated/layer_payloads/stage7_output_words.hex."
+    },
+    {
+      "index": 9,
+      "name": "layerConvBNRelu9",
+      "op": "pointwise_conv",
+      "kernel_size": 1,
+      "weight_blob": "ConvBNRelu9_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage09_layerConvBNRelu9_weights.hex",
+      "weight_word_count": 48,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage8 output payload sw/dronet_v3/generated/layer_payloads/stage8_output_words.hex."
+    },
+    {
+      "index": 10,
+      "name": "layerConvDWBNRelu10",
+      "op": "depthwise_conv",
+      "kernel_size": 3,
+      "weight_blob": "ConvDWBNRelu10_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage10_layerConvDWBNRelu10_weights.hex",
+      "weight_word_count": 50,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage9 output payload sw/dronet_v3/generated/layer_payloads/stage9_output_words.hex."
+    },
+    {
+      "index": 11,
+      "name": "layerConvBNRelu11",
+      "op": "pointwise_conv",
+      "kernel_size": 1,
+      "weight_blob": "ConvBNRelu11_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage11_layerConvBNRelu11_weights.hex",
+      "weight_word_count": 96,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage10 output payload sw/dronet_v3/generated/layer_payloads/stage10_output_words.hex."
+    },
+    {
+      "index": 12,
+      "name": "layerConvDWBNRelu12",
+      "op": "depthwise_conv",
+      "kernel_size": 3,
+      "weight_blob": "ConvDWBNRelu12_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage12_layerConvDWBNRelu12_weights.hex",
+      "weight_word_count": 100,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage11 output payload sw/dronet_v3/generated/layer_payloads/stage11_output_words.hex."
+    },
+    {
+      "index": 13,
+      "name": "layerConvBNRelu13",
+      "op": "pointwise_conv",
+      "kernel_size": 1,
+      "weight_blob": "ConvBNRelu13_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage13_layerConvBNRelu13_weights.hex",
+      "weight_word_count": 128,
+      "activation_payload_available": true,
+      "activation_note": "Uses the derived CUTIE stage12 output payload sw/dronet_v3/generated/layer_payloads/stage12_output_words.hex."
+    },
+    {
+      "index": 14,
+      "name": "layerMatMul14_last",
+      "op": "matmul",
+      "kernel_size": 1,
+      "weight_blob": "MatMul14_weights.hex",
+      "weight_blob_words_hex": "sw/dronet_v3/generated/layer_payloads/stage14_layerMatMul14_last_weights.hex",
+      "weight_word_count": 392,
+      "activation_payload_available": false,
+      "activation_note": "Intermediate activations are not present in the exported bundle; later stages need either a software reference dump or a CUTIE-driven previous-stage run."
+    }
+  ]
+}

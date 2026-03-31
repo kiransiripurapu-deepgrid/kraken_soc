@@ -1,0 +1,33 @@
+{
+  "input_hex": "sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex",
+  "output_hex": "sw/dronet_v3/generated/layer_payloads/stage1_maxpool_output_words.hex",
+  "input_shape_hwc": [
+    100,
+    100,
+    4
+  ],
+  "output_shape_hwc": [
+    50,
+    50,
+    4
+  ],
+  "pool_kernel": [
+    2,
+    2
+  ],
+  "stride": [
+    2,
+    2
+  ],
+  "word_count": 2500,
+  "first_words": [
+    "f9f9f9f9",
+    "f9f9f9f9",
+    "f9f9f9f9",
+    "f9f9f9f9",
+    "f9f9f9f9",
+    "f9f9f9f9",
+    "f9f9f9f9",
+    "f9f9f9f9"
+  ]
+}
