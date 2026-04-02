@@ -8,7 +8,7 @@
 `define PULP_SOC_DEFINES_SV
 
 // Architecture freeze
-`define NB_CORES    1
+`define NB_CORES    8
 
 // Reasonable defaults for the extracted cluster wrappers
 `define NB_DMAS     4

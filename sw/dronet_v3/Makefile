@@ -1,11 +1,21 @@
 RISCV_PREFIX ?= riscv32-unknown-elf
 PAYLOAD_MODE ?= smoke
 VALIDATE_READBACK ?= 0
+ENABLE_XPULP ?= 1
+RISCV_ARCH ?= rv32imc
 CC      := $(RISCV_PREFIX)-gcc
 OBJCOPY := $(RISCV_PREFIX)-objcopy
 OBJDUMP := $(RISCV_PREFIX)-objdump
 
-CFLAGS  := -march=rv32imc -mabi=ilp32 -mcmodel=medlow -ffreestanding -nostdlib -nostartfiles -Os
+# The stock Ubuntu riscv64-unknown-elf toolchain does not accept xPULP march
+# strings, so keep the default buildable and allow an explicit override when
+# using a PULP-capable compiler.
+ARCH := $(RISCV_ARCH)
+ifeq ($(ENABLE_XPULP),1)
+ARCH := $(RISCV_ARCH)
+endif
+
+CFLAGS  := -march=$(ARCH) -mabi=ilp32 -mcmodel=medlow -ffreestanding -nostdlib -nostartfiles -Os
 LDFLAGS := -T ../basic/link.ld -nostdlib -nostartfiles -Wl,-Map=dronet_v3_driver.map
 
 ifeq ($(PAYLOAD_MODE),full)
@@ -46,6 +56,8 @@ else ifeq ($(PAYLOAD_MODE),partial)
 	CFLAGS += -DCUTIE_DRONET_USE_PARTIAL_PAYLOAD
 else ifeq ($(PAYLOAD_MODE),full_preload)
 CFLAGS += -DCUTIE_DRONET_INCLUDE_FULL_PAYLOAD -DCUTIE_DRONET_USE_FULL_PAYLOAD -DCUTIE_DRONET_ASSUME_PRELOADED
+else ifeq ($(PAYLOAD_MODE),sequential)
+CFLAGS += -DCUTIE_DRONET_INCLUDE_FULL_PAYLOAD -DCUTIE_DRONET_USE_SEQUENTIAL_CHAIN
 endif
 
 ifeq ($(VALIDATE_READBACK),1)
@@ -202,6 +214,10 @@ dronet_v3_full.mem:
 
 dronet_v3_full_preload.mem:
 	$(MAKE) clean all PAYLOAD_MODE=full_preload RISCV_PREFIX=$(RISCV_PREFIX)
+	cp dronet_v3_driver.mem $@
+
+dronet_v3_sequential.mem:
+	$(MAKE) clean all PAYLOAD_MODE=sequential RISCV_PREFIX=$(RISCV_PREFIX) ENABLE_XPULP=$(ENABLE_XPULP)
 	cp dronet_v3_driver.mem $@
 
 dronet_v3_driver.dis: dronet_v3_driver.elf

@@ -1,0 +1,159 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date             : Thu Apr  2 10:39:08 2026
+| Host             : kiran-kumar-siripurapu running 64-bit major release  (build 9200)
+| Command          : report_power -file synth_power.rpt
+| Design           : kraken_soc_func_fpga
+| Device           : xc7a200tsbg484-1
+| Design State     : synthesized
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+----------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 1.043        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.879        |
+| Device Static (W)        | 0.164        |
+| Effective TJA (C/W)      | 3.3          |
+| Max Ambient (C)          | 81.5         |
+| Junction Temperature (C) | 28.5         |
+| Confidence Level         | Medium       |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.126 |        3 |       --- |             --- |
+| Slice Logic              |     0.317 |   693467 |       --- |             --- |
+|   LUT as Logic           |     0.263 |   268511 |    134600 |          199.49 |
+|   LUT as Distributed RAM |     0.040 |   134592 |     46200 |          291.32 |
+|   CARRY4                 |     0.008 |     9389 |     33650 |           27.90 |
+|   F7/F8 Muxes            |     0.005 |    93142 |    134600 |           69.20 |
+|   Register               |    <0.001 |   100540 |    269200 |           37.35 |
+|   Others                 |     0.000 |     4792 |       --- |             --- |
+| Signals                  |     0.188 |   379675 |       --- |             --- |
+| Block RAM                |     0.246 |      167 |       365 |           45.75 |
+| DSPs                     |    <0.001 |       15 |       740 |            2.03 |
+| I/O                      |    <0.001 |        5 |       285 |            1.75 |
+| Static Power             |     0.164 |          |           |                 |
+| Total                    |     1.043 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint    |       1.000 |     0.914 |       0.872 |      0.042 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.031 |       0.000 |      0.031 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.005 |       0.000 |      0.005 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.005 |       0.000 |      0.005 |       NA    | Unspecified | NA         |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.012 |       0.007 |      0.005 |       NA    | Unspecified | NA         |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                        | Action                                                                                                     |
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | Low        | Design is synthesized                          | Accuracy of the tool is not optimal until design is fully placed and routed                                |
+| Clock nodes activity        | High       | User specified more than 95% of clocks         |                                                                                                            |
+| I/O nodes activity          | High       | User specified more than 95% of inputs         |                                                                                                            |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                   |                                                                                                            |
+|                             |            |                                                |                                                                                                            |
+| Overall confidence level    | Medium     |                                                |                                                                                                            |
++-----------------------------+------------+------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 3.3                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------------+--------+-----------------+
+| Clock       | Domain | Constraint (ns) |
++-------------+--------+-----------------+
+| sys_clk_pin | clk_i  |            20.0 |
++-------------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++---------------------------+-----------+
+| Name                      | Power (W) |
++---------------------------+-----------+
+| kraken_soc_func_fpga      |     0.879 |
+|   i_soc                   |     0.878 |
+|     i_cutie               |     0.102 |
+|       cutie_i             |     0.080 |
+|     i_l2_mem              |     0.270 |
+|     i_pulp_cluster        |     0.025 |
+|       gen_cores[0].i_core |     0.025 |
+|     i_sne                 |     0.410 |
+|       i_evt_fifo          |     0.001 |
+|       i_sne               |     0.408 |
++---------------------------+-----------+
+
+

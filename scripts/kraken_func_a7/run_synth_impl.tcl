@@ -180,8 +180,10 @@ if {[llength [get_filesets sim_1 -quiet]] > 0} {
 }
 catch {set_property AUTO_INCREMENTAL_CHECKPOINT false [get_runs synth_1]}
 catch {set_property INCREMENTAL_CHECKPOINT {} [get_runs synth_1]}
-catch {set_property STEPS.SYNTH_DESIGN.ARGS.DIRECTIVE Default [get_runs synth_1]}
+catch {set_property strategy Flow_RuntimeOptimized [get_runs synth_1]}
+catch {set_property STEPS.SYNTH_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs synth_1]}
 catch {set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]}
+catch {set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]}
 catch {set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
 catch {set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
 catch {set_property STEPS.PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]}

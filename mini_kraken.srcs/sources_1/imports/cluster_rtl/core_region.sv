@@ -153,10 +153,10 @@ import pulp_cluster_package::*;
     if ( CORE_TYPE_CL == 0 ) begin: CV32_CORE
       assign boot_addr = boot_addr_i;
       cv32e40p_wrapper #(
-        .PULP_XPULP          ( 1                           ), // For now this is a no
+        .PULP_XPULP          ( 0                           ),
         .PULP_CLUSTER        ( 1                           ),
         .FPU                 ( FPU                         ),
-        .NUM_EXTERNAL_PERF   ( N_EXT_PERF_COUNTERS         ),
+        .NUM_EXTERNAL_PERF   ( 0                           ),
         .NUM_INTERRUPTS      ( NUM_INTERRUPTS              ),
         .PULP_ZFINX          ( 0                           )
       ) CV32_CORE (

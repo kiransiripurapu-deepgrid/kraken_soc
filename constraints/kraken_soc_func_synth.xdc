@@ -16,9 +16,9 @@
 #   LD0..LD3 (LEDs)   : H17, K15, J13, N14 -- verify against board schematic
 ###############################################################################
 
-## Clock input: 100 MHz oscillator (Arty A7-200T / SBG484: H16)
+## Clock input: 50 MHz target for easier closure on the functional FPGA build
 set_property -dict {PACKAGE_PIN H16 IOSTANDARD LVCMOS33} [get_ports clk_i]
-create_clock -name sys_clk_pin -period 10.000 -waveform {0.000 5.000} [get_ports clk_i]
+create_clock -name sys_clk_pin -period 20.000 -waveform {0.000 10.000} [get_ports clk_i]
 
 ## Active-low reset button (BTN0, Arty A7-200T / SBG484: D9 -- verify with board XDC)
 set_property -dict {PACKAGE_PIN D9 IOSTANDARD LVCMOS33} [get_ports rst_ni]
