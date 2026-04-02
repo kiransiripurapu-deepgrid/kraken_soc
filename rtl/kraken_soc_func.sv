@@ -884,17 +884,38 @@ module kraken_soc_func_unified_mem #(
 );
   localparam int unsigned ADDR_WIDTH = $clog2(NUM_WORDS);
 
-  logic [DATA_WIDTH-1:0] ram [NUM_WORDS-1:0];
+  (* ram_style = "block" *) logic [DATA_WIDTH-1:0] ram [NUM_WORDS-1:0];
+  logic [ADDR_WIDTH-1:0] porta_addr_q;
+  logic                  porta_valid_q;
 
-  always_ff @(posedge clk_i) begin
-    if (data_req_i) begin
-      if (data_we_i)
-        for (int i = 0; i < (DATA_WIDTH/8); i++)
-          if (data_be_i[i]) ram[data_addr_i][8*i +: 8] <= data_wdata_i[8*i +: 8];
+`ifndef SYNTHESIS
+  initial begin
+    for (int i = 0; i < NUM_WORDS; i++) begin
+      ram[i] = '0;
     end
   end
+`endif
 
-  assign instr_rdata_o = ram[instr_addr_i];
-  assign data_rdata_o  = ram[data_addr_i];
-  assign dma_rdata_o   = ram[dma_addr_i];
+  always_ff @(posedge clk_i) begin
+    porta_valid_q <= 1'b0;
+    if (instr_req_i || dma_req_i) begin
+      // Use one read port for instruction/DMA traffic (instruction has priority).
+      porta_addr_q  <= instr_req_i ? instr_addr_i : dma_addr_i;
+      porta_valid_q <= 1'b1;
+    end
+
+    if (porta_valid_q) begin
+      instr_rdata_o <= ram[porta_addr_q];
+      dma_rdata_o   <= ram[porta_addr_q];
+    end
+
+    if (data_req_i) begin
+      if (data_we_i) begin
+        for (int i = 0; i < (DATA_WIDTH/8); i++)
+          if (data_be_i[i]) ram[data_addr_i][8*i +: 8] <= data_wdata_i[8*i +: 8];
+      end
+
+      data_rdata_o <= ram[data_addr_i];
+    end
+  end
 endmodule

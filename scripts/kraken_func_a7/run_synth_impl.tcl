@@ -144,7 +144,7 @@ set_property USED_IN_SYNTHESIS true $weightbuf_ff_file
 set_property USED_IN_IMPLEMENTATION true $weightbuf_ff_file
 set_property USED_IN_SYNTHESIS true $xdc_file
 set_property USED_IN_IMPLEMENTATION true $xdc_file
-set_property verilog_define {KRAKEN_FPGA_SYNTH_PROFILE SLICES=8 NGGROUPS=16} [get_filesets sources_1]
+set_property verilog_define {KRAKEN_FPGA_SYNTH_PROFILE SLICES=2 NGGROUPS=4} [get_filesets sources_1]
 set_property top kraken_soc_func_fpga [get_filesets sources_1]
 disable_file_patterns_for_fpga sources_1 {
     *../../ips/axi/*.sv
@@ -182,7 +182,7 @@ catch {set_property AUTO_INCREMENTAL_CHECKPOINT false [get_runs synth_1]}
 catch {set_property INCREMENTAL_CHECKPOINT {} [get_runs synth_1]}
 catch {set_property strategy Flow_RuntimeOptimized [get_runs synth_1]}
 catch {set_property STEPS.SYNTH_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs synth_1]}
-catch {set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY none [get_runs synth_1]}
+catch {set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY rebuilt [get_runs synth_1]}
 catch {set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]}
 catch {set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
 catch {set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}

@@ -40,7 +40,7 @@ module sne_evt_fifo (
 );
 
   // Storage
-  logic [31:0] mem [0:15];
+  (* ram_style = "block" *) logic [31:0] mem [0:15];
   logic [3:0]  wr_ptr_q;
   logic [3:0]  rd_ptr_q;
   logic [4:0]  count_q;
@@ -67,7 +67,15 @@ module sne_evt_fifo (
   assign watermark_o      = watermark_q;
 
   assign pop_valid_o = !empty_o;
-  assign pop_data_o  = mem[rd_ptr_q];
+  assign pop_data_o  = empty_o ? 32'd0 : mem[rd_ptr_q];
+
+`ifndef SYNTHESIS
+  initial begin
+    for (int i = 0; i < 16; i++) begin
+      mem[i] = '0;
+    end
+  end
+`endif
 
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
@@ -88,9 +96,8 @@ module sne_evt_fifo (
         count_q          <= '0;
         overflow_sticky_q <= 1'b0;
       end else begin
-        // Push
+        // Push bookkeeping
         if (push_valid_i && !full_o) begin
-          mem[wr_ptr_q]  <= push_data_i;
           wr_ptr_q       <= wr_ptr_q + 4'd1;
           push_count_q   <= push_count_q + 32'd1;
         end
@@ -135,6 +142,13 @@ module sne_evt_fifo (
         pop_count_q  <= '0;
         watermark_q  <= '0;
       end
+    end
+  end
+
+  // Keep memory writes in a sync-only block so RAM inference is not blocked by async reset.
+  always_ff @(posedge clk_i) begin
+    if (push_valid_i && !full_o) begin
+      mem[wr_ptr_q] <= push_data_i;
     end
   end
 

@@ -30,7 +30,7 @@ set_property target_language Verilog [current_project]
 set_property default_lib xil_defaultlib [current_project]
 
 # SNE preprocessor macros (must be set before SNE source files are elaborated)
-set_property verilog_define "SLICES=8 NGGROUPS=16" [current_fileset]
+set_property verilog_define "SLICES=2 NGGROUPS=4" [current_fileset]
 
 # Base packages
 add_files -norecurse -fileset sources_1 [file normalize [file join $repo_root "include/axi_pkg.sv"]]
