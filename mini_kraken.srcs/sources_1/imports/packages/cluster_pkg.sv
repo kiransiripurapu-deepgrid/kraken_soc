@@ -300,7 +300,7 @@ package pulp_cluster_package;
     NumSyncStages: 3,
     UseHci: 1,
     TcdmSize: 128*1024,
-    TcdmNumBank: 16,
+    TcdmNumBank: 4,
     HwpePresent: 1,
     // CUTIE integration: keep only CUTIE enabled for now.
     HwpeCfg: '{NumHwpes: 1, HwpeList: {CUTIE, '0, '0, '0, '0, '0, '0, '0}},
@@ -341,7 +341,7 @@ package pulp_cluster_package;
     AxiAddrWidth: 48,
     AxiDataInWidth: 64,
     AxiDataOutWidth: 64,
-    AxiUserWidth: 10,
+    AxiUserWidth: 4,
     AxiMaxInTrans: 64,
     AxiMaxOutTrans: 64,
     AxiCdcLogDepth: 3,

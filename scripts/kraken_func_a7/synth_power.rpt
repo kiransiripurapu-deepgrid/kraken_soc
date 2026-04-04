@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Thu Apr  2 18:20:06 2026
+| Date             : Fri Apr  3 19:01:53 2026
 | Host             : kiran-kumar-siripurapu running 64-bit major release  (build 9200)
 | Command          : report_power -file synth_power.rpt
 | Design           : kraken_soc_func_fpga
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.055 |        3 |       --- |             --- |
-| Slice Logic              |     0.058 |   215983 |       --- |             --- |
-|   LUT as Logic           |     0.055 |   123343 |    134600 |           91.64 |
+| Slice Logic              |     0.058 |   216005 |       --- |             --- |
+|   LUT as Logic           |     0.055 |   123338 |    134600 |           91.63 |
 |   CARRY4                 |     0.002 |     1501 |     33650 |            4.46 |
 |   Register               |    <0.001 |    59808 |    269200 |           22.22 |
 |   LUT as Distributed RAM |    <0.001 |     3544 |     46200 |            7.67 |
-|   F7/F8 Muxes            |    <0.001 |    11782 |    134600 |            8.75 |
+|   F7/F8 Muxes            |    <0.001 |    11832 |    134600 |            8.79 |
 |   Others                 |     0.000 |     1002 |       --- |             --- |
-| Signals                  |     0.066 |   164382 |       --- |             --- |
+| Signals                  |     0.066 |   164285 |       --- |             --- |
 | Block RAM                |     0.122 |       96 |       365 |           26.30 |
 | DSPs                     |     0.001 |       15 |       740 |            2.03 |
 | I/O                      |    <0.001 |        5 |       285 |            1.75 |
@@ -149,8 +149,8 @@ Table of Contents
 |     i_cutie               |     0.107 |
 |       cutie_i             |     0.085 |
 |     i_l2_mem              |     0.101 |
-|     i_pulp_cluster        |     0.027 |
-|       gen_cores[0].i_core |     0.027 |
+|     i_pulp_cluster        |     0.026 |
+|       gen_cores[0].i_core |     0.026 |
 |     i_sne                 |     0.064 |
 |       i_sne               |     0.063 |
 +---------------------------+-----------+

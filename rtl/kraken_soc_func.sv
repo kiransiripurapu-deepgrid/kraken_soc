@@ -361,10 +361,7 @@ module kraken_soc_func import axi_pkg::*; #(
       sne_error_seen_q <= 1'b0;
       accel_irq_status_q <= 32'd0;
       accel_irq_mask_q <= 32'h0000_000F;
-      dma_desc_ptr_q <= 32'd0;
       dma_status_q <= 32'd0;
-      dma_done_count_q <= 32'd0;
-      dma_error_count_q <= 32'd0;
 `ifndef SYNTHESIS
     end else if (data_req_fire && core_data_we[0] && (data_is_mmio === 1'b1) &&
                  !$isunknown(core_data_addr[0][7:2]) && !$isunknown(core_data_wdata[0])) begin
@@ -405,7 +402,6 @@ module kraken_soc_func import axi_pkg::*; #(
         MMIO_ACCEL_IRQ_MASK_OFFSET: accel_irq_mask_q <= core_data_wdata[0];
         MMIO_SNE_DONE_COUNT_OFFSET: sne_done_count_q <= core_data_wdata[0];
         MMIO_SNE_ERROR_COUNT_OFFSET: sne_error_count_q <= core_data_wdata[0];
-        MMIO_DMA_DESC_PTR_OFFSET: dma_desc_ptr_q <= core_data_wdata[0];
         MMIO_DMA_STATUS_OFFSET: begin
           if (core_data_wdata[0][1]) begin
             dma_status_q[1] <= 1'b0;
@@ -413,8 +409,6 @@ module kraken_soc_func import axi_pkg::*; #(
             dma_status_q[31:16] <= 16'd0;
           end
         end
-        MMIO_DMA_DONE_COUNT_OFFSET: dma_done_count_q <= core_data_wdata[0];
-        MMIO_DMA_ERROR_COUNT_OFFSET: dma_error_count_q <= core_data_wdata[0];
         default: ;
       endcase
     end else if (data_req_fire && ~data_is_local && ~data_is_mmio && ~data_is_cutie_cfg && ~data_is_sne_cfg) begin
@@ -561,6 +555,7 @@ module kraken_soc_func import axi_pkg::*; #(
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
       dma_state_q <= DMA_IDLE;
+      dma_desc_ptr_q <= 32'd0;
       dma_next_desc_q <= 32'd0;
       dma_src_addr_q <= 32'd0;
       dma_dst_addr_q <= 32'd0;
@@ -577,11 +572,21 @@ module kraken_soc_func import axi_pkg::*; #(
       dma_busy_q <= 1'b0;
       dma_done_q <= 1'b0;
       dma_error_q <= 1'b0;
+      dma_done_count_q <= 32'd0;
+      dma_error_count_q <= 32'd0;
       dma_irq_en_q <= 1'b0;
       dma_chain_en_q <= 1'b0;
     end else begin
       dma_done_q <= 1'b0;
       dma_error_q <= 1'b0;
+      if (data_req_fire && core_data_we[0] && (data_is_mmio === 1'b1)) begin
+        unique case (mmio_word_addr)
+          MMIO_DMA_DESC_PTR_OFFSET: dma_desc_ptr_q <= core_data_wdata[0];
+          MMIO_DMA_DONE_COUNT_OFFSET: dma_done_count_q <= core_data_wdata[0];
+          MMIO_DMA_ERROR_COUNT_OFFSET: dma_error_count_q <= core_data_wdata[0];
+          default: ;
+        endcase
+      end
       if (data_req_fire && core_data_we[0] && (data_is_mmio === 1'b1) &&
           (mmio_word_addr == MMIO_DMA_STATUS_OFFSET) && core_data_wdata[0][0] && !dma_busy_q) begin
         dma_state_q <= DMA_DESC_REQ;
