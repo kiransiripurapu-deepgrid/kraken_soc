@@ -1,0 +1,544 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Apr  9 14:48:08 2026
+| Host         : kiran-kumar-siripurapu running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -file synth_timing.rpt
+| Design       : kraken_soc_func_fpga
+| Device       : 7a200t-sbg484
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (1)
+6. checking no_output_delay (0)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (1)
+------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There is 1 input port with no input delay but user has a false path constraint. (MEDIUM)
+
+
+6. checking no_output_delay (0)
+-------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+     -8.284   -49665.102                  26784               208661        0.011        0.000                      0               208661        8.750        0.000                       0                 64409  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)       Period(ns)      Frequency(MHz)
+-----        ------------       ----------      --------------
+sys_clk_pin  {0.000 10.000}     20.000          50.000          
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin        -8.284   -49665.102                  26784               151002        0.011        0.000                      0               151002        8.750        0.000                       0                 64409  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+**async_default**  sys_clk_pin        sys_clk_pin             17.350        0.000                      0                57659        0.740        0.000                      0                57659  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :        26784  Failing Endpoints,  Worst Slack       -8.284ns,  Total Violation   -49665.101ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.011ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        8.750ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -8.284ns  (required time - arrival time)
+  Source:                 i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[8]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/data_q_reg[0][0]/CE
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (sys_clk_pin rise@20.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        27.902ns  (logic 9.661ns (34.625%)  route 18.241ns (65.375%))
+  Logic Levels:           36  (CARRY4=13 LUT2=3 LUT3=2 LUT4=4 LUT5=5 LUT6=9)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.727ns = ( 22.727 - 20.000 ) 
+    Source Clock Delay      (SCD):    2.988ns
+    Clock Pessimism Removal (CPR):    0.116ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.509     1.509 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.800     2.308    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.096     2.404 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.584     2.988    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.456     3.444 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[8]/Q
+                         net (fo=6, unplaced)         0.997     4.441    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q[8]
+                         LUT6 (Prop_lut6_I0_O)        0.295     4.736 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___15_i_4/O
+                         net (fo=92, unplaced)        0.516     5.252    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[8]_0
+                         LUT4 (Prop_lut4_I0_O)        0.150     5.402 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___14_i_108/O
+                         net (fo=1, unplaced)         0.000     5.402    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___14_i_108_n_0
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.553     5.955 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___14_i_57/CO[3]
+                         net (fo=1, unplaced)         0.009     5.964    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_lbound_i_0_yid_0/g0_b6__0_i_6[0]
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.078 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_lbound_i_0_yid_0/i___14_i_14/CO[3]
+                         net (fo=4, unplaced)         1.132     7.210    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b3__0_0_i_1_1[0]
+                         LUT6 (Prop_lut6_I1_O)        0.124     7.334 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b6__0_i_4/O
+                         net (fo=8, unplaced)         0.940     8.274    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b6__0_i_4_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     8.398 f  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b3__0_0_i_2/O
+                         net (fo=8, unplaced)         0.940     9.338    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/th_lut_idx_s[1]
+                         LUT6 (Prop_lut6_I1_O)        0.124     9.462 f  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___249_0_i_22/O
+                         net (fo=1, unplaced)         0.665    10.127    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___249_0_i_22_n_0
+                         LUT6 (Prop_lut6_I0_O)        0.124    10.251 f  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/i___249_0_i_11/O
+                         net (fo=3, unplaced)         0.920    11.171    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_14_0
+                         LUT6 (Prop_lut6_I2_O)        0.124    11.295 f  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/i___249_0_i_9/O
+                         net (fo=5, unplaced)         0.930    12.225    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/i___249_0_i_9_n_0
+                         LUT6 (Prop_lut6_I3_O)        0.124    12.349 f  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/i___261_0_i_2/O
+                         net (fo=2, unplaced)         0.913    13.262    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/i___261_0_i_2_n_0
+                         LUT4 (Prop_lut4_I1_O)        0.124    13.386 f  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/i___261_0_i_1/O
+                         net (fo=15, unplaced)        0.955    14.341    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/q_reg[3]_16
+                         LUT6 (Prop_lut6_I0_O)        0.124    14.465 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry__0_i_3/O
+                         net (fo=2, unplaced)         0.650    15.115    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry_i_8_0[1]
+                         CARRY4 (Prop_carry4_DI[1]_O[3])
+                                                      0.614    15.729 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__0_carry__0/O[3]
+                         net (fo=2, unplaced)         0.629    16.358    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__0_carry__0_n_4
+                         LUT3 (Prop_lut3_I2_O)        0.307    16.665 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0_i_4/O
+                         net (fo=2, unplaced)         0.460    17.125    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0_i_4_n_0
+                         LUT4 (Prop_lut4_I3_O)        0.124    17.249 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0_i_8/O
+                         net (fo=1, unplaced)         0.000    17.249    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0_i_8_n_0
+                         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    17.781 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0/CO[3]
+                         net (fo=1, unplaced)         0.000    17.781    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.348    18.129 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__1/O[1]
+                         net (fo=7, unplaced)         0.646    18.775    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__1_i_8[1]
+                         LUT2 (Prop_lut2_I0_O)        0.335    19.110 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i__carry__0_i_2__0/O
+                         net (fo=1, unplaced)         0.000    19.110    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i__carry__0_i_2__0_n_0
+                         CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.427    19.537 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_inferred__1/i__carry__0/CO[3]
+                         net (fo=1, unplaced)         0.000    19.537    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_inferred__1/i__carry__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    19.830 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_inferred__1/i__carry__1/CO[0]
+                         net (fo=8, unplaced)         0.349    20.179    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_inferred__1/i__carry__1_n_3
+                         LUT5 (Prop_lut5_I1_O)        0.367    20.546 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry_i_10/O
+                         net (fo=1, unplaced)         0.449    20.995    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[0].i_state_sram_o/i_sram/sat_mem_voltage_s2_carry_0
+                         LUT5 (Prop_lut5_I4_O)        0.124    21.119 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[0].i_state_sram_o/i_sram/sat_mem_voltage_s2_carry_i_3/O
+                         net (fo=2, unplaced)         0.650    21.769    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i___161[1]
+                         CARRY4 (Prop_carry4_DI[1]_CO[3])
+                                                      0.507    22.276 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry/CO[3]
+                         net (fo=1, unplaced)         0.009    22.285    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.348    22.633 f  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry__0/O[1]
+                         net (fo=8, unplaced)         0.649    23.282    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/ram_reg_5[1]
+                         LUT2 (Prop_lut2_I0_O)        0.306    23.588 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i___153_i_7/O
+                         net (fo=1, unplaced)         0.000    23.588    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i___153_i_7_n_0
+                         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    23.989 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i___153_i_4/CO[3]
+                         net (fo=1, unplaced)         0.009    23.998    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i___153_i_4_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.293    24.291 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron/i___153_i_2/CO[0]
+                         net (fo=24, unplaced)        0.534    24.825    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group_n_350
+                         LUT5 (Prop_lut5_I0_O)        0.367    25.192 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i___326/O
+                         net (fo=1, unplaced)         0.000    25.192    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron//i___3_carry__0_0[1]
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    25.742 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron//i___3_carry/CO[3]
+                         net (fo=1, unplaced)         0.009    25.751    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron//i___3_carry_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    25.865 f  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_dp_group/group[0].i_lif_neuron/i_alif_neuron//i___3_carry__0/CO[3]
+                         net (fo=1, unplaced)         0.918    26.783    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_0_xid_0/gen_state_mem_pipe[0].data_reg[16][0]
+                         LUT5 (Prop_lut5_I0_O)        0.124    26.907 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_0_xid_0/gen_state_mem_pipe[0].data[21]_i_3/O
+                         net (fo=5, unplaced)         0.477    27.384    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_0_xid_0/q_reg[0]_2
+                         LUT2 (Prop_lut2_I0_O)        0.124    27.508 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_0_xid_0/mem_voltage_ns0_carry_i_1/O
+                         net (fo=19, unplaced)        0.508    28.016    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_memory_sequencer/i_evt_sequencer/spike_o[0]
+                         LUT3 (Prop_lut3_I2_O)        0.124    28.140 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_memory_sequencer/i_evt_sequencer/data_q[3][29]_i_5__2/O
+                         net (fo=1, unplaced)         0.902    29.042    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_memory_sequencer/i_evt_mapper_src/data_q[3][29]_i_3__2
+                         LUT6 (Prop_lut6_I2_O)        0.124    29.166 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_memory_sequencer/i_evt_mapper_src/data_q[3][29]_i_4/O
+                         net (fo=1, unplaced)         0.449    29.615    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_mapper/wptr_q_reg[0]_1
+                         LUT5 (Prop_lut5_I3_O)        0.124    29.739 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/i_evt_mapper/data_q[3][29]_i_3__2/O
+                         net (fo=7, unplaced)         0.484    30.223    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/wptr_q_reg[0]_0
+                         LUT4 (Prop_lut4_I3_O)        0.124    30.347 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/data_q[0][29]_i_1/O
+                         net (fo=30, unplaced)        0.543    30.890    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/data_q[0][29]_i_1_n_0
+                         FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/data_q_reg[0][0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     20.000    20.000 r  
+    Y11                                               0.000    20.000 r  clk_i (IN)
+                         net (fo=0)                   0.000    20.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.438    21.438 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.760    22.197    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.091    22.288 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.439    22.727    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/data_q_reg[0][0]/C
+                         clock pessimism              0.116    22.843    
+                         clock uncertainty           -0.035    22.808    
+                         FDCE (Setup_fdce_C_CE)      -0.202    22.606    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_src/data_q_reg[0][0]
+  -------------------------------------------------------------------
+                         required time                         22.606    
+                         arrival time                         -30.890    
+  -------------------------------------------------------------------
+                         slack                                 -8.284    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.011ns  (arrival time - required time)
+  Source:                 i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.226ns  (logic 0.141ns (62.465%)  route 0.085ns (37.535%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.107ns
+    Source Clock Delay      (SCD):    0.753ns
+    Clock Pessimism Removal (CPR):    0.209ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.276     0.276 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.337     0.613    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.026     0.639 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.114     0.753    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.141     0.894 r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[0]/Q
+                         net (fo=1, unplaced)         0.085     0.979    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q[0]
+                         FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.464     0.464 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.355     0.819    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.029     0.848 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.259     1.107    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[1]/C
+                         clock pessimism             -0.209     0.898    
+                         FDCE (Hold_fdce_C_D)         0.070     0.968    i_soc/i_sne/i_sne/evt_engine[0].i_evt_engine/fifo[0].i_evt_cdc_fifo/i_cdc_fifo_gray/i_dst/gen_sync[0].i_sync/reg_q_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.968    
+                         arrival time                           0.979    
+  -------------------------------------------------------------------
+                         slack                                  0.011    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clk_pin
+Waveform(ns):       { 0.000 10.000 }
+Period(ns):         20.000
+Sources:            { clk_i }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            3.363         20.000      16.637               i_soc/i_l2_mem/ram_reg_0_0_0/CLKARDCLK
+Low Pulse Width   Slow    RAMD64E/CLK         n/a            1.250         10.000      8.750                i_soc/i_cutie/linear_act_mem_reg_0_63_0_2/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK         n/a            1.250         10.000      8.750                i_soc/i_cutie/linear_act_mem_reg_0_63_0_2/RAMA/CLK
+
+
+
+---------------------------------------------------------------------------------------------------
+Path Group:  **async_default**
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :            0  Failing Endpoints,  Worst Slack       17.350ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.740ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             17.350ns  (required time - arrival time)
+  Source:                 i_soc/rst_n_q_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_cutie/act_rdata_q_reg[0]/CLR
+                            (recovery check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             **async_default**
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Requirement:            20.000ns  (sys_clk_pin rise@20.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        2.061ns  (logic 0.751ns (36.439%)  route 1.310ns (63.561%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.727ns = ( 22.727 - 20.000 ) 
+    Source Clock Delay      (SCD):    2.988ns
+    Clock Pessimism Removal (CPR):    0.116ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.509     1.509 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.800     2.308    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.096     2.404 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.584     2.988    i_soc/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/rst_n_q_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.456     3.444 r  i_soc/rst_n_q_reg/Q
+                         net (fo=51, unplaced)        0.394     3.838    i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q
+                         LUT1 (Prop_lut1_I0_O)        0.295     4.133 f  i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/mem_reg_q[0][0][0][1]_i_1/O
+                         net (fo=57659, unplaced)     0.916     5.049    i_soc/i_cutie/rst_n_q_reg
+                         FDCE                                         f  i_soc/i_cutie/act_rdata_q_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     20.000    20.000 r  
+    Y11                                               0.000    20.000 r  clk_i (IN)
+                         net (fo=0)                   0.000    20.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.438    21.438 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.760    22.197    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.091    22.288 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.439    22.727    i_soc/i_cutie/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/i_cutie/act_rdata_q_reg[0]/C
+                         clock pessimism              0.116    22.843    
+                         clock uncertainty           -0.035    22.808    
+                         FDCE (Recov_fdce_C_CLR)     -0.409    22.399    i_soc/i_cutie/act_rdata_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         22.399    
+                         arrival time                          -5.049    
+  -------------------------------------------------------------------
+                         slack                                 17.350    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.740ns  (arrival time - required time)
+  Source:                 i_soc/rst_n_q_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_cutie/act_rdata_q_reg[0]/CLR
+                            (removal check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             **async_default**
+  Path Type:              Removal (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.791ns  (logic 0.239ns (30.208%)  route 0.552ns (69.792%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.107ns
+    Source Clock Delay      (SCD):    0.753ns
+    Clock Pessimism Removal (CPR):    0.209ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.276     0.276 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.337     0.613    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.026     0.639 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.114     0.753    i_soc/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/rst_n_q_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.141     0.894 r  i_soc/rst_n_q_reg/Q
+                         net (fo=51, unplaced)        0.166     1.060    i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q
+                         LUT1 (Prop_lut1_I0_O)        0.098     1.158 f  i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/mem_reg_q[0][0][0][1]_i_1/O
+                         net (fo=57659, unplaced)     0.386     1.544    i_soc/i_cutie/rst_n_q_reg
+                         FDCE                                         f  i_soc/i_cutie/act_rdata_q_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.464     0.464 r  clk_i_IBUF_inst/O
+                         net (fo=1, unplaced)         0.355     0.819    clk_i_IBUF
+                         BUFG (Prop_bufg_I_O)         0.029     0.848 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64408, unplaced)     0.259     1.107    i_soc/i_cutie/clk_i_IBUF_BUFG
+                         FDCE                                         r  i_soc/i_cutie/act_rdata_q_reg[0]/C
+                         clock pessimism             -0.209     0.898    
+                         FDCE (Remov_fdce_C_CLR)     -0.094     0.804    i_soc/i_cutie/act_rdata_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -0.804    
+                         arrival time                           1.544    
+  -------------------------------------------------------------------
+                         slack                                  0.740    
+
+
+
+
+

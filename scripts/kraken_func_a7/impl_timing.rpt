@@ -1,0 +1,581 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Apr  9 16:18:10 2026
+| Host         : kiran-kumar-siripurapu running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -file impl_timing.rpt
+| Design       : kraken_soc_func_fpga
+| Device       : 7a200t-sbg484
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+Rule       Severity  Description                                           Violations  
+---------  --------  ----------------------------------------------------  ----------  
+DPIR-1     Warning   Asynchronous driver check                             82          
+SYNTH-10   Warning   Wide multiplier                                       3           
+SYNTH-15   Warning   Byte wide write enable not inferred                   64          
+SYNTH-16   Warning   Address collision                                     36          
+TIMING-16  Warning   Large setup violation                                 1000        
+ULMTCS-1   Warning   Control Sets use limits recommend reduction           1           
+XDCC-4     Warning   User Clock constraint overwritten with the same name  1           
+XDCC-8     Warning   User Clock constraint overwritten on the same source  1           
+
+Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (1)
+6. checking no_output_delay (0)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (1)
+------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There is 1 input port with no input delay but user has a false path constraint. (MEDIUM)
+
+
+6. checking no_output_delay (0)
+-------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+     -7.589  -106513.320                  33626               208855        0.017        0.000                      0               208855        8.750        0.000                       0                 64439  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)       Period(ns)      Frequency(MHz)
+-----        ------------       ----------      --------------
+sys_clk_pin  {0.000 10.000}     20.000          50.000          
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin        -7.589  -106513.320                  33626               151168        0.017        0.000                      0               151168        8.750        0.000                       0                 64439  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+**async_default**  sys_clk_pin        sys_clk_pin             10.715        0.000                      0                57687        3.054        0.000                      0                57687  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :        33626  Failing Endpoints,  Worst Slack       -7.589ns,  Total Violation  -106513.318ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.017ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        8.750ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -7.589ns  (required time - arrival time)
+  Source:                 i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[3]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/gen_state_mem_pipe[1].data_reg[29]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (sys_clk_pin rise@20.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        27.550ns  (logic 9.014ns (32.719%)  route 18.536ns (67.281%))
+  Logic Levels:           33  (CARRY4=13 LUT2=1 LUT3=1 LUT4=5 LUT5=4 LUT6=9)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.939ns = ( 25.939 - 20.000 ) 
+    Source Clock Delay      (SCD):    6.288ns
+    Clock Pessimism Removal (CPR):    0.316ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.509     1.509 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           2.457     3.965    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.096     4.061 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.140     4.201    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.096     4.297 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           0.154     4.451    clk_i_IBUF_BUFG_repN
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     4.547 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64421, routed)       1.741     6.288    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/clk_i_IBUF_BUFG
+    SLICE_X145Y159       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X145Y159       FDCE (Prop_fdce_C_Q)         0.456     6.744 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[3]/Q
+                         net (fo=4, routed)           0.827     7.571    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/gen_spill_reg.a_data_q[3]
+    SLICE_X148Y159       LUT6 (Prop_lut6_I0_O)        0.124     7.695 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b6__0_i_85/O
+                         net (fo=16, routed)          0.958     8.653    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/g0_b6__2_i_10_0[3]
+    SLICE_X145Y166       LUT4 (Prop_lut4_I3_O)        0.124     8.777 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/g0_b6__2_i_73/O
+                         net (fo=1, routed)           0.000     8.777    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/g0_b6__2_i_73_n_0
+    SLICE_X145Y166       CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     9.327 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/g0_b6__2_i_34/CO[3]
+                         net (fo=1, routed)           0.000     9.327    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/g0_b6__2_i_34_n_0
+    SLICE_X145Y167       CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     9.441 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/g0_b6__2_i_10/CO[3]
+                         net (fo=4, routed)           1.837    11.278    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b3__2_0_i_1__0_2[0]
+    SLICE_X145Y157       LUT6 (Prop_lut6_I4_O)        0.124    11.402 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b6__2_i_5__0/O
+                         net (fo=8, routed)           1.027    12.429    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b6__2_i_5__0_n_0
+    SLICE_X143Y161       LUT6 (Prop_lut6_I2_O)        0.124    12.553 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/g0_b3__2_0_i_1__0/O
+                         net (fo=7, routed)           0.962    13.514    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/th_lut_idx_s_0[0]
+    SLICE_X149Y155       LUT6 (Prop_lut6_I0_O)        0.124    13.638 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/post_leak_voltage_s2__0_carry__0_i_29__0/O
+                         net (fo=1, routed)           0.484    14.122    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/post_leak_voltage_s2__0_carry__0_i_29__0_n_0
+    SLICE_X149Y153       LUT6 (Prop_lut6_I0_O)        0.124    14.246 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/post_leak_voltage_s2__0_carry__0_i_22__0/O
+                         net (fo=3, routed)           0.765    15.011    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_17__4_0
+    SLICE_X150Y151       LUT6 (Prop_lut6_I4_O)        0.124    15.135 f  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_22__0/O
+                         net (fo=4, routed)           0.686    15.822    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_22__0_n_0
+    SLICE_X150Y152       LUT6 (Prop_lut6_I1_O)        0.124    15.946 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_15__4/O
+                         net (fo=7, routed)           0.983    16.928    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_15__4_n_0
+    SLICE_X152Y152       LUT4 (Prop_lut4_I3_O)        0.124    17.052 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_parameter_i_tscale/post_leak_voltage_s2__0_carry_i_11__0/O
+                         net (fo=15, routed)          0.514    17.566    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__32_carry__0
+    SLICE_X153Y154       LUT4 (Prop_lut4_I0_O)        0.124    17.690 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__65_carry_i_8__1/O
+                         net (fo=3, routed)           0.449    18.138    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/ram_reg_5
+    SLICE_X155Y155       LUT2 (Prop_lut2_I1_O)        0.124    18.262 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__65_carry_i_2__4/O
+                         net (fo=1, routed)           0.624    18.886    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__0_i_4__4_2[1]
+    SLICE_X154Y153       CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.404    19.290 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__65_carry/CO[3]
+                         net (fo=1, routed)           0.000    19.290    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__65_carry_n_0
+    SLICE_X154Y154       CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219    19.509 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__65_carry__0/O[0]
+                         net (fo=2, routed)           0.871    20.380    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__88_carry__1[0]
+    SLICE_X159Y155       LUT3 (Prop_lut3_I1_O)        0.295    20.675 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__88_carry__1_i_4__4/O
+                         net (fo=2, routed)           0.403    21.078    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__32_carry__1[0]
+    SLICE_X157Y155       LUT4 (Prop_lut4_I0_O)        0.124    21.202 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_e/i_sram/post_leak_voltage_s2__88_carry__1_i_8__4/O
+                         net (fo=1, routed)           0.000    21.202    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_carry_i_2__4_0[0]
+    SLICE_X157Y155       CARRY4 (Prop_carry4_S[0]_O[3])
+                                                      0.606    21.808 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__1/O[3]
+                         net (fo=8, routed)           0.987    22.795    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s2__88_carry__1_i_8__4[3]
+    SLICE_X155Y157       LUT4 (Prop_lut4_I2_O)        0.306    23.101 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/i__carry_i_5__25/O
+                         net (fo=1, routed)           0.000    23.101    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/i__carry_i_5__25_n_0
+    SLICE_X155Y157       CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401    23.502 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_inferred__0/i__carry/CO[3]
+                         net (fo=9, routed)           1.311    24.813    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/post_leak_voltage_s1_inferred__0/i__carry_n_0
+    SLICE_X154Y160       LUT5 (Prop_lut5_I0_O)        0.124    24.937 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry_i_11__4/O
+                         net (fo=2, routed)           0.639    25.576    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_o/i_sram/sat_mem_voltage_s2_carry
+    SLICE_X153Y166       LUT5 (Prop_lut5_I4_O)        0.124    25.700 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_o/i_sram/sat_mem_voltage_s2_carry_i_2__4/O
+                         net (fo=1, routed)           0.190    25.890    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/mem_voltage_ns0_carry_i_7__0_0[2]
+    SLICE_X152Y166       CARRY4 (Prop_carry4_DI[2]_CO[3])
+                                                      0.404    26.294 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry/CO[3]
+                         net (fo=1, routed)           0.000    26.294    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry_n_0
+    SLICE_X152Y167       CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.229    26.523 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry__0/CO[2]
+                         net (fo=3, routed)           0.613    27.135    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/sat_mem_voltage_s2_carry__0_n_1
+    SLICE_X151Y168       CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.801    27.936 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/i___3_carry_i_5__0/CO[1]
+                         net (fo=24, routed)          0.960    28.897    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/i___3_carry_i_5__0_n_2
+    SLICE_X150Y168       LUT5 (Prop_lut5_I1_O)        0.329    29.226 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/i___3_carry_i_3__0/O
+                         net (fo=1, routed)           0.000    29.226    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/i___3_carry_i_3__0_n_0
+    SLICE_X150Y168       CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    29.759 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron//i___3_carry/CO[3]
+                         net (fo=1, routed)           0.000    29.759    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron//i___3_carry_n_0
+    SLICE_X150Y169       CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    29.876 f  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron//i___3_carry__0/CO[3]
+                         net (fo=1, routed)           0.883    30.758    i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/gen_state_mem_pipe[1].data_reg[16]_0[0]
+    SLICE_X151Y169       LUT5 (Prop_lut5_I0_O)        0.124    30.882 r  i_soc/i_sne/i_sne/i_evt_reggen/i_evt_reggen_engine_cdc/i_engine_clock_reg_top/u_cfg_filter_ubound_i_5_xid_5/gen_state_mem_pipe[1].data[21]_i_3__0/O
+                         net (fo=7, routed)           0.460    31.342    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/q_reg[0]_3_alias
+    SLICE_X151Y169       LUT6 (Prop_lut6_I4_O)        0.124    31.466 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/mem_voltage_ns0_carry_i_9__0_comp/O
+                         net (fo=1, routed)           0.798    32.264    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/mem_voltage_ns0_carry_i_9__0_n_0
+    SLICE_X148Y167       CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.637    32.901 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/mem_voltage_ns0_carry/CO[3]
+                         net (fo=1, routed)           0.000    32.901    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/mem_voltage_ns0_carry_n_0
+    SLICE_X148Y168       CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    33.224 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_dp_group/group[1].i_lif_neuron/i_alif_neuron/mem_voltage_ns0_carry__0/O[1]
+                         net (fo=1, routed)           0.308    33.532    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_o/i_sram/mem_voltage_ns_0[5]
+    SLICE_X147Y168       LUT6 (Prop_lut6_I5_O)        0.306    33.838 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/i_status_memory/state_mem[1].i_state_sram_o/i_sram/gen_state_mem_pipe[1].data[29]_i_1/O
+                         net (fo=1, routed)           0.000    33.838    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/group_states_o[1]_129[29]
+    SLICE_X147Y168       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/gen_state_mem_pipe[1].data_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     20.000    20.000 r  
+    Y11                                               0.000    20.000 r  clk_i (IN)
+                         net (fo=0)                   0.000    20.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.438    21.438 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           2.334    23.772    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.091    23.863 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.133    23.996    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    24.087 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           0.147    24.234    clk_i_IBUF_BUFG_repN
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    24.325 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64421, routed)       1.615    25.939    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/clk_i_IBUF_BUFG
+    SLICE_X147Y168       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/gen_state_mem_pipe[1].data_reg[29]/C
+                         clock pessimism              0.316    26.255    
+                         clock uncertainty           -0.035    26.220    
+    SLICE_X147Y168       FDCE (Setup_fdce_C_D)        0.029    26.249    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_memory_subsystem/gen_state_mem_pipe[1].data_reg[29]
+  -------------------------------------------------------------------
+                         required time                         26.249    
+                         arrival time                         -33.838    
+  -------------------------------------------------------------------
+                         slack                                 -7.589    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.017ns  (arrival time - required time)
+  Source:                 i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[2]/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.546ns  (logic 0.209ns (38.257%)  route 0.337ns (61.743%))
+  Logic Levels:           1  (LUT6=1)
+  Clock Path Skew:        0.410ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.428ns
+    Source Clock Delay      (SCD):    1.760ns
+    Clock Pessimism Removal (CPR):    0.259ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.276     0.276 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           0.843     1.119    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.026     1.145 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.615     1.760    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/clk_i_IBUF_BUFG_repN_1_alias
+    SLICE_X142Y160       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X142Y160       FDCE (Prop_fdce_C_Q)         0.164     1.924 f  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[2]/Q
+                         net (fo=48, routed)          0.337     2.261    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/Q[2]
+    SLICE_X146Y160       LUT6 (Prop_lut6_I0_O)        0.045     2.306 r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut/spill_register_flushable_i/PS[1]_i_1__2/O
+                         net (fo=5, routed)           0.000     2.306    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/i_evt_engine_input_cut_n_2
+    SLICE_X146Y160       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.464     0.464 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           0.910     1.375    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.029     1.404 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.033     1.437    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     1.466 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           0.046     1.512    clk_i_IBUF_BUFG_repN
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.541 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64421, routed)       0.887     2.428    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/clk_i_IBUF_BUFG
+    SLICE_X146Y160       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]/C
+                         clock pessimism             -0.259     2.170    
+    SLICE_X146Y160       FDCE (Hold_fdce_C_D)         0.120     2.290    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -2.290    
+                         arrival time                           2.306    
+  -------------------------------------------------------------------
+                         slack                                  0.017    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clk_pin
+Waveform(ns):       { 0.000 10.000 }
+Period(ns):         20.000
+Sources:            { clk_i }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            3.363         20.000      16.637     RAMB36_X0Y22  i_soc/i_l2_mem/ram_reg_0_0_0/CLKARDCLK
+Low Pulse Width   Slow    RAMD64E/CLK         n/a            1.250         10.000      8.750      SLICE_X62Y98  i_soc/i_cutie/linear_act_mem_reg_0_63_0_2/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK         n/a            1.250         10.000      8.750      SLICE_X62Y98  i_soc/i_cutie/linear_act_mem_reg_0_63_0_2/RAMA/CLK
+
+
+
+---------------------------------------------------------------------------------------------------
+Path Group:  **async_default**
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :            0  Failing Endpoints,  Worst Slack       10.715ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        3.054ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             10.715ns  (required time - arrival time)
+  Source:                 i_soc/rst_n_q_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]_replica_3/CLR
+                            (recovery check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             **async_default**
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Requirement:            20.000ns  (sys_clk_pin rise@20.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        8.368ns  (logic 0.676ns (8.078%)  route 7.692ns (91.922%))
+  Logic Levels:           2  (BUFG=1 LUT1=1)
+  Clock Path Skew:        -0.477ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.707ns = ( 25.707 - 20.000 ) 
+    Source Clock Delay      (SCD):    6.394ns
+    Clock Pessimism Removal (CPR):    0.210ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.509     1.509 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           2.457     3.965    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.096     4.061 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.140     4.201    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.096     4.297 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           0.154     4.451    clk_i_IBUF_BUFG_repN
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     4.547 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64421, routed)       1.847     6.394    i_soc/clk_i_IBUF_BUFG
+    SLICE_X1Y137         FDCE                                         r  i_soc/rst_n_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y137         FDCE (Prop_fdce_C_Q)         0.456     6.850 r  i_soc/rst_n_q_reg/Q
+                         net (fo=51, routed)          4.467    11.317    i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q
+    SLICE_X83Y146        LUT1 (Prop_lut1_I0_O)        0.124    11.441 f  i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/mem_reg_q[0][0][0][1]_i_1/O
+                         net (fo=1, routed)           0.699    12.140    i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q_reg
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.096    12.236 f  i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q_reg_BUFG_inst/O
+                         net (fo=57687, routed)       2.527    14.763    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/next_time_q_reg[27]
+    SLICE_X145Y162       FDCE                                         f  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]_replica_3/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     20.000    20.000 r  
+    Y11                                               0.000    20.000 r  clk_i (IN)
+                         net (fo=0)                   0.000    20.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         1.438    21.438 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           2.334    23.772    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.091    23.863 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.133    23.996    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.091    24.087 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           1.621    25.707    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/clk_i_IBUF_BUFG_repN_alias
+    SLICE_X145Y162       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]_replica_3/C
+                         clock pessimism              0.210    25.918    
+                         clock uncertainty           -0.035    25.882    
+    SLICE_X145Y162       FDCE (Recov_fdce_C_CLR)     -0.405    25.477    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_evt_engine_router/PS_reg[1]_replica_3
+  -------------------------------------------------------------------
+                         required time                         25.477    
+                         arrival time                         -14.763    
+  -------------------------------------------------------------------
+                         slack                                 10.715    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             3.054ns  (arrival time - required time)
+  Source:                 i_soc/rst_n_q_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_weight_fifo/i_evt_cdc_memory_fifo_left/i_cdc_fifo_gray/i_dst/rptr_q_reg[0]/CLR
+                            (removal check against rising-edge clock sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             **async_default**
+  Path Type:              Removal (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        3.351ns  (logic 0.212ns (6.327%)  route 3.139ns (93.673%))
+  Logic Levels:           2  (BUFG=1 LUT1=1)
+  Clock Path Skew:        0.363ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.556ns
+    Source Clock Delay      (SCD):    1.921ns
+    Clock Pessimism Removal (CPR):    0.272ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.276     0.276 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           0.843     1.119    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.026     1.145 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.030     1.175    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.026     1.201 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           0.042     1.243    clk_i_IBUF_BUFG_repN
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026     1.269 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64421, routed)       0.652     1.921    i_soc/clk_i_IBUF_BUFG
+    SLICE_X1Y137         FDCE                                         r  i_soc/rst_n_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y137         FDCE (Prop_fdce_C_Q)         0.141     2.062 r  i_soc/rst_n_q_reg/Q
+                         net (fo=51, routed)          2.081     4.142    i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q
+    SLICE_X83Y146        LUT1 (Prop_lut1_I0_O)        0.045     4.187 f  i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/mem_reg_q[0][0][0][1]_i_1/O
+                         net (fo=1, routed)           0.260     4.447    i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q_reg
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026     4.473 f  i_soc/i_cutie/cutie_i/linebuffer/genblk1[15].block/rst_n_q_reg_BUFG_inst/O
+                         net (fo=57687, routed)       0.799     5.272    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_weight_fifo/i_evt_cdc_memory_fifo_left/i_cdc_fifo_gray/i_dst/gen_spill_reg.b_full_q_reg_0
+    SLICE_X162Y243       FDCE                                         f  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_weight_fifo/i_evt_cdc_memory_fifo_left/i_cdc_fifo_gray/i_dst/rptr_q_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y11                                               0.000     0.000 r  clk_i (IN)
+                         net (fo=0)                   0.000     0.000    clk_i
+    Y11                  IBUF (Prop_ibuf_I_O)         0.464     0.464 r  clk_i_IBUF_inst/O
+                         net (fo=1, routed)           0.910     1.375    clk_i_IBUF
+    BUFGCTRL_X0Y14       BUFG (Prop_bufg_I_O)         0.029     1.404 r  clk_i_IBUF_BUFG_inst_replica_1/O
+                         net (fo=8, routed)           0.033     1.437    clk_i_IBUF_BUFG_repN_1
+    BUFGCTRL_X0Y15       BUFG (Prop_bufg_I_O)         0.029     1.466 r  clk_i_IBUF_BUFG_inst_replica/O
+                         net (fo=9, routed)           0.046     1.512    clk_i_IBUF_BUFG_repN
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.029     1.541 r  clk_i_IBUF_BUFG_inst/O
+                         net (fo=64421, routed)       1.015     2.556    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_weight_fifo/i_evt_cdc_memory_fifo_left/i_cdc_fifo_gray/i_dst/clk_i_IBUF_BUFG
+    SLICE_X162Y243       FDCE                                         r  i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_weight_fifo/i_evt_cdc_memory_fifo_left/i_cdc_fifo_gray/i_dst/rptr_q_reg[0]/C
+                         clock pessimism             -0.272     2.284    
+    SLICE_X162Y243       FDCE (Remov_fdce_C_CLR)     -0.067     2.217    i_soc/i_sne/i_sne/evt_engine[1].i_evt_engine/i_memory_sequencer/i_evt_weight_fifo/i_evt_cdc_memory_fifo_left/i_cdc_fifo_gray/i_dst/rptr_q_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -2.217    
+                         arrival time                           5.272    
+  -------------------------------------------------------------------
+                         slack                                  3.054    
+
+
+
+
+
