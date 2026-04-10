@@ -184,13 +184,13 @@ catch {set_property strategy Flow_RuntimeOptimized [get_runs synth_1]}
 catch {set_property STEPS.SYNTH_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs synth_1]}
 catch {set_property STEPS.SYNTH_DESIGN.ARGS.FLATTEN_HIERARCHY rebuilt [get_runs synth_1]}
 catch {set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]}
-catch {set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
-catch {set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
+catch {set_property strategy Flow_RuntimeOptimized [get_runs impl_1]}
+catch {set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs impl_1]}
+catch {set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs impl_1]}
 catch {set_property STEPS.PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]}
-catch {set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
-catch {set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
-catch {set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]}
-catch {set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE Explore [get_runs impl_1]}
+catch {set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs impl_1]}
+catch {set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE RuntimeOptimized [get_runs impl_1]}
+catch {set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED false [get_runs impl_1]}
 update_compile_order -fileset sources_1
 puts "Skipping explicit save_project due to Vivado Tcl save quirk in this setup..."
 
