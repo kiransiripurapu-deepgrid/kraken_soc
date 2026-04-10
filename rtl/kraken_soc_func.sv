@@ -20,10 +20,13 @@ module kraken_soc_func import axi_pkg::*; #(
   output logic        mem_valid_o,
   output logic [31:0] mem_data_o,
   output logic        cutie_busy_o,
-  output logic [1:0]  cutie_evt_o
+  output logic [1:0]  cutie_evt_o,
+  output logic [31:0] demo_status_o,
+  output logic [31:0] demo_result_o,
+  output logic        sne_activity_o
 );
 
-  logic rst_sync_ff_q;
+  (* ASYNC_REG = "TRUE", SHREG_EXTRACT = "NO" *) logic [1:0] rst_sync_ff_q;
   logic rst_n_q;
 
   logic [0:0]       core_instr_req;
@@ -34,6 +37,8 @@ module kraken_soc_func import axi_pkg::*; #(
   logic             instr_req_fire;
   logic             instr_rsp_pop;
   logic             instr_rsp_can_accept;
+  logic             instr_rsp_push_fire;
+  logic [31:0]      instr_rsp_push_data;
   logic [1:0]       instr_rsp_count_q;
   logic [31:0]      instr_rsp_q0;
   logic [31:0]      instr_rsp_q1;
@@ -41,6 +46,8 @@ module kraken_soc_func import axi_pkg::*; #(
   logic [31:0]      instr_rsp_data_q;
   logic             instr_rvalid_q;
   logic [31:0]      instr_rdata_q;
+  logic             instr_l2_read_pending_q;
+  logic             instr_l2_read_data_valid_q;
   logic [0:0]       core_data_req;
   logic [0:0]       core_data_gnt;
   logic [0:0]       core_data_we;
@@ -66,6 +73,7 @@ module kraken_soc_func import axi_pkg::*; #(
   logic [5:0]  mmio_word_addr;
   logic        data_req_fire;
   logic [31:0] data_resp_new;
+  logic        data_local_read_pending_q;
   logic        data_rsp_push_fire;
   logic [31:0] data_rsp_push_data;
   logic        data_rsp_pop;
@@ -78,10 +86,19 @@ module kraken_soc_func import axi_pkg::*; #(
   logic [31:0] data_rsp_data_q;
   logic        data_rvalid_q;
   logic [31:0] data_rdata_q;
+  logic        data_local_read_data_valid_q;
   logic [31:0] mmio_rdata;
   logic [31:0] mmio_scratch0_q;
   logic [31:0] mmio_scratch1_q;
   logic [31:0] mmio_gpio_q;
+  logic [31:0] mmio_demo_status_q;
+  logic [31:0] mmio_demo_result_q;
+  logic [31:0] mmio_demo_cutie_sig_q;
+  logic [31:0] mmio_demo_cutie_out0_q;
+  logic [31:0] mmio_demo_cutie_out1_q;
+  logic [31:0] mmio_demo_cycle0_q;
+  logic [31:0] mmio_demo_cycle1_q;
+  logic [31:0] mmio_demo_cycle2_q;
   logic [31:0] uart_tx_reg_q;
   logic [31:0] uart_status_q;
   logic [31:0] bad_access_q;
@@ -114,13 +131,16 @@ module kraken_soc_func import axi_pkg::*; #(
   logic [31:0] cutie_cfg_addr_mux;
   logic [31:0] cutie_cfg_wdata_mux;
   logic        cutie_cfg_cpu_blocked;
-  typedef enum logic [3:0] {
+  typedef enum logic [4:0] {
     DMA_IDLE,
     DMA_DESC_REQ,
+    DMA_DESC_WAIT,
     DMA_DESC_CAP,
     DMA_PREP_RD0,
+    DMA_WAIT_RD0,
     DMA_CAP_RD0,
     DMA_PREP_RD1,
+    DMA_WAIT_RD1,
     DMA_CAP_RD1,
     DMA_CFG_BANK,
     DMA_CFG_ADDR,
@@ -182,6 +202,14 @@ module kraken_soc_func import axi_pkg::*; #(
   localparam logic [5:0] MMIO_DMA_CUR_DST_OFFSET = 6'h17;
   localparam logic [5:0] MMIO_DMA_DONE_COUNT_OFFSET = 6'h18;
   localparam logic [5:0] MMIO_DMA_ERROR_COUNT_OFFSET = 6'h19;
+  localparam logic [5:0] MMIO_DEMO_STATUS_OFFSET = 6'h1A;
+  localparam logic [5:0] MMIO_DEMO_RESULT_OFFSET = 6'h1B;
+  localparam logic [5:0] MMIO_DEMO_CUTIE_SIG_OFFSET = 6'h1C;
+  localparam logic [5:0] MMIO_DEMO_CUTIE_OUT0_OFFSET = 6'h1D;
+  localparam logic [5:0] MMIO_DEMO_CUTIE_OUT1_OFFSET = 6'h1E;
+  localparam logic [5:0] MMIO_DEMO_CYCLE0_OFFSET = 6'h1F;
+  localparam logic [5:0] MMIO_DEMO_CYCLE1_OFFSET = 6'h20;
+  localparam logic [5:0] MMIO_DEMO_CYCLE2_OFFSET = 6'h21;
   localparam logic [31:0] CUTIE_ACT_WR_ADDR = 32'h0000_0100;
   localparam logic [31:0] CUTIE_ACT_BANK_ADDR = 32'h0000_0104;
   localparam logic [31:0] CUTIE_ACT_DST_ADDR = 32'h0000_0108;
@@ -202,11 +230,12 @@ module kraken_soc_func import axi_pkg::*; #(
   // out of reset. This was part of the last known-good functional behavior.
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
-      rst_sync_ff_q <= 1'b0;
+      rst_sync_ff_q <= 2'b00;
       rst_n_q       <= 1'b0;
     end else begin
-      rst_sync_ff_q <= 1'b1;
-      rst_n_q       <= rst_sync_ff_q;
+      rst_sync_ff_q[0] <= 1'b1;
+      rst_sync_ff_q[1] <= rst_sync_ff_q[0];
+      rst_n_q          <= rst_sync_ff_q[1];
     end
   end
 
@@ -242,7 +271,7 @@ module kraken_soc_func import axi_pkg::*; #(
   assign data_is_local        = ~data_is_mmio & ~data_is_cutie_cfg & (core_data_addr[0] <= LOCAL_MEM_LAST_ADDR);
   assign instr_rsp_pop        = rst_n_q & (instr_rsp_count_q != 2'd0) & ~STRICT_SINGLE_OUTSTANDING;
   assign instr_rsp_can_accept = (instr_rsp_count_q != 2'd2) || instr_rsp_pop;
-  assign core_instr_gnt[0]    = core_instr_req[0] &
+  assign core_instr_gnt[0]    = core_instr_req[0] & ~dma_busy_q &
                                 (STRICT_SINGLE_OUTSTANDING ? ~instr_rsp_pending_q : instr_rsp_can_accept);
   assign instr_req_fire       = core_instr_req[0] & core_instr_gnt[0];
   assign core_instr_rvalid[0] = STRICT_SINGLE_OUTSTANDING ? instr_rsp_pending_q : instr_rvalid_q;
@@ -281,7 +310,9 @@ module kraken_soc_func import axi_pkg::*; #(
     .dma_rdata_o  ( dma_mem_rdata                )
   );
 
-  assign instr_resp_new = instr_is_l2 ? mem_rdata : BAD_ACCESS_RDATA;
+  assign instr_resp_new      = instr_is_l2 ? mem_rdata : BAD_ACCESS_RDATA;
+  assign instr_rsp_push_fire = instr_l2_read_data_valid_q | (instr_req_fire & ~instr_is_l2);
+  assign instr_rsp_push_data = instr_l2_read_data_valid_q ? mem_rdata : BAD_ACCESS_RDATA;
 
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
@@ -292,11 +323,15 @@ module kraken_soc_func import axi_pkg::*; #(
       instr_rsp_data_q    <= 32'd0;
       instr_rvalid_q    <= 1'b0;
       instr_rdata_q     <= 32'd0;
+      instr_l2_read_pending_q <= 1'b0;
+      instr_l2_read_data_valid_q <= 1'b0;
     end else begin
+      instr_l2_read_data_valid_q <= instr_l2_read_pending_q;
+      instr_l2_read_pending_q <= instr_req_fire & instr_is_l2;
       if (STRICT_SINGLE_OUTSTANDING) begin
-        instr_rsp_pending_q <= instr_req_fire;
-        if (instr_req_fire)
-          instr_rsp_data_q <= instr_resp_new;
+        instr_rsp_pending_q <= instr_rsp_push_fire;
+        if (instr_rsp_push_fire)
+          instr_rsp_data_q <= instr_rsp_push_data;
 
         instr_rsp_count_q <= 2'd0;
         instr_rsp_q0      <= 32'd0;
@@ -310,7 +345,7 @@ module kraken_soc_func import axi_pkg::*; #(
           instr_rdata_q <= instr_rsp_q0;
         end
 
-        unique case ({instr_req_fire, instr_rsp_pop})
+        unique case ({instr_rsp_push_fire, instr_rsp_pop})
           2'b00: begin
             // no push/pop
           end
@@ -323,18 +358,18 @@ module kraken_soc_func import axi_pkg::*; #(
           2'b10: begin
             // push only
             if (instr_rsp_count_q == 2'd0)
-              instr_rsp_q0 <= instr_resp_new;
+              instr_rsp_q0 <= instr_rsp_push_data;
             else if (instr_rsp_count_q == 2'd1)
-              instr_rsp_q1 <= instr_resp_new;
+              instr_rsp_q1 <= instr_rsp_push_data;
             instr_rsp_count_q <= (instr_rsp_count_q == 2'd2) ? 2'd2 : (instr_rsp_count_q + 2'd1);
           end
           2'b11: begin
             // push and pop in same cycle (count stays constant)
             if (instr_rsp_count_q == 2'd1) begin
-              instr_rsp_q0 <= instr_resp_new;
+              instr_rsp_q0 <= instr_rsp_push_data;
             end else if (instr_rsp_count_q == 2'd2) begin
               instr_rsp_q0 <= instr_rsp_q1;
-              instr_rsp_q1 <= instr_resp_new;
+              instr_rsp_q1 <= instr_rsp_push_data;
             end
           end
         endcase
@@ -347,6 +382,14 @@ module kraken_soc_func import axi_pkg::*; #(
       mmio_scratch0_q <= 32'd0;
       mmio_scratch1_q <= 32'd0;
       mmio_gpio_q     <= 32'd0;
+      mmio_demo_status_q <= 32'd0;
+      mmio_demo_result_q <= 32'd0;
+      mmio_demo_cutie_sig_q <= 32'd0;
+      mmio_demo_cutie_out0_q <= 32'd0;
+      mmio_demo_cutie_out1_q <= 32'd0;
+      mmio_demo_cycle0_q <= 32'd0;
+      mmio_demo_cycle1_q <= 32'd0;
+      mmio_demo_cycle2_q <= 32'd0;
       uart_tx_reg_q   <= 32'd0;
       uart_status_q   <= 32'h0000_0001;
       bad_access_q    <= 32'd0;
@@ -393,6 +436,14 @@ module kraken_soc_func import axi_pkg::*; #(
         MMIO_SCRATCH0_OFFSET:    mmio_scratch0_q <= core_data_wdata[0];
         MMIO_SCRATCH1_OFFSET:    mmio_scratch1_q <= core_data_wdata[0];
         MMIO_GPIO_OFFSET:        mmio_gpio_q     <= core_data_wdata[0];
+        MMIO_DEMO_STATUS_OFFSET: mmio_demo_status_q <= core_data_wdata[0];
+        MMIO_DEMO_RESULT_OFFSET: mmio_demo_result_q <= core_data_wdata[0];
+        MMIO_DEMO_CUTIE_SIG_OFFSET: mmio_demo_cutie_sig_q <= core_data_wdata[0];
+        MMIO_DEMO_CUTIE_OUT0_OFFSET: mmio_demo_cutie_out0_q <= core_data_wdata[0];
+        MMIO_DEMO_CUTIE_OUT1_OFFSET: mmio_demo_cutie_out1_q <= core_data_wdata[0];
+        MMIO_DEMO_CYCLE0_OFFSET: mmio_demo_cycle0_q <= core_data_wdata[0];
+        MMIO_DEMO_CYCLE1_OFFSET: mmio_demo_cycle1_q <= core_data_wdata[0];
+        MMIO_DEMO_CYCLE2_OFFSET: mmio_demo_cycle2_q <= core_data_wdata[0];
         MMIO_UART_TX_OFFSET:     uart_tx_reg_q   <= core_data_wdata[0];
         MMIO_BAD_ACCESS_OFFSET:  bad_access_q    <= core_data_wdata[0];
         MMIO_CYCLE_COUNT_OFFSET: cycle_counter_q <= core_data_wdata[0];
@@ -480,9 +531,12 @@ module kraken_soc_func import axi_pkg::*; #(
   end
 
   assign sne_cfg_rvalid     = (sne_cfg_bus.r_valid === 1'b1);
-  assign data_rsp_push_fire = (data_req_fire && (!data_is_sne_cfg || core_data_we[0])) ||
+  assign data_rsp_push_fire = data_local_read_data_valid_q |
+                              (data_req_fire && (core_data_we[0] || ~data_is_local) && !data_is_sne_cfg) |
+                              (data_req_fire && data_is_sne_cfg && core_data_we[0]) |
                               sne_cfg_rvalid;
-  assign data_rsp_push_data = sne_cfg_rvalid ? sne_cfg_bus.r_rdata : data_resp_new;
+  assign data_rsp_push_data = sne_cfg_rvalid ? sne_cfg_bus.r_rdata :
+                              (data_local_read_data_valid_q ? data_mem_rdata : data_resp_new);
 
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (!rst_ni) begin
@@ -493,7 +547,11 @@ module kraken_soc_func import axi_pkg::*; #(
       data_rsp_data_q    <= 32'd0;
       data_rvalid_q    <= 1'b0;
       data_rdata_q     <= 32'd0;
+      data_local_read_pending_q <= 1'b0;
+      data_local_read_data_valid_q <= 1'b0;
     end else begin
+      data_local_read_data_valid_q <= data_local_read_pending_q;
+      data_local_read_pending_q <= data_req_fire & data_is_local & ~core_data_we[0];
       if (STRICT_SINGLE_OUTSTANDING) begin
         data_rsp_pending_q <= data_rsp_push_fire;
         if (data_rsp_push_fire)
@@ -599,7 +657,8 @@ module kraken_soc_func import axi_pkg::*; #(
       end else begin
         unique case (dma_state_q)
           DMA_IDLE: begin end
-          DMA_DESC_REQ: dma_state_q <= DMA_DESC_CAP;
+          DMA_DESC_REQ: dma_state_q <= DMA_DESC_WAIT;
+          DMA_DESC_WAIT: dma_state_q <= DMA_DESC_CAP;
           DMA_DESC_CAP: begin
             unique case (dma_fetch_index_q)
               3'd0: dma_src_addr_q <= dma_mem_rdata;
@@ -628,7 +687,8 @@ module kraken_soc_func import axi_pkg::*; #(
               dma_state_q <= DMA_DESC_REQ;
             end
           end
-          DMA_PREP_RD0: dma_state_q <= DMA_CAP_RD0;
+          DMA_PREP_RD0: dma_state_q <= DMA_WAIT_RD0;
+          DMA_WAIT_RD0: dma_state_q <= DMA_CAP_RD0;
           DMA_CAP_RD0: begin
             dma_read_lo_q <= dma_mem_rdata;
             if ((dma_target_q < 2) && (dma_remaining_q > 32'd1))
@@ -638,7 +698,8 @@ module kraken_soc_func import axi_pkg::*; #(
               dma_state_q <= (dma_target_q < 2) ? DMA_CFG_BANK : DMA_CFG_ADDR;
             end
           end
-          DMA_PREP_RD1: dma_state_q <= DMA_CAP_RD1;
+          DMA_PREP_RD1: dma_state_q <= DMA_WAIT_RD1;
+          DMA_WAIT_RD1: dma_state_q <= DMA_CAP_RD1;
           DMA_CAP_RD1: begin
             dma_read_hi_q <= dma_mem_rdata;
             dma_state_q <= DMA_CFG_BANK;
@@ -698,18 +759,15 @@ module kraken_soc_func import axi_pkg::*; #(
     cutie_cfg_wdata_dma = 32'd0;
 
     unique case (dma_state_q)
-      DMA_DESC_REQ,
-      DMA_DESC_CAP: begin
+      DMA_DESC_REQ: begin
         dma_mem_req = 1'b1;
         dma_mem_addr = dma_desc_ptr_q[17:2] + dma_fetch_index_q;
       end
-      DMA_PREP_RD0,
-      DMA_CAP_RD0: begin
+      DMA_PREP_RD0: begin
         dma_mem_req = 1'b1;
         dma_mem_addr = dma_curr_src_q[15:0];
       end
-      DMA_PREP_RD1,
-      DMA_CAP_RD1: begin
+      DMA_PREP_RD1: begin
         dma_mem_req = 1'b1;
         dma_mem_addr = dma_curr_src_q + 32'd1;
       end
@@ -765,6 +823,14 @@ module kraken_soc_func import axi_pkg::*; #(
       MMIO_SCRATCH0_OFFSET:      mmio_rdata = mmio_scratch0_q;
       MMIO_SCRATCH1_OFFSET:      mmio_rdata = mmio_scratch1_q;
       MMIO_GPIO_OFFSET:          mmio_rdata = mmio_gpio_q;
+      MMIO_DEMO_STATUS_OFFSET:   mmio_rdata = mmio_demo_status_q;
+      MMIO_DEMO_RESULT_OFFSET:   mmio_rdata = mmio_demo_result_q;
+      MMIO_DEMO_CUTIE_SIG_OFFSET:mmio_rdata = mmio_demo_cutie_sig_q;
+      MMIO_DEMO_CUTIE_OUT0_OFFSET:mmio_rdata = mmio_demo_cutie_out0_q;
+      MMIO_DEMO_CUTIE_OUT1_OFFSET:mmio_rdata = mmio_demo_cutie_out1_q;
+      MMIO_DEMO_CYCLE0_OFFSET:   mmio_rdata = mmio_demo_cycle0_q;
+      MMIO_DEMO_CYCLE1_OFFSET:   mmio_rdata = mmio_demo_cycle1_q;
+      MMIO_DEMO_CYCLE2_OFFSET:   mmio_rdata = mmio_demo_cycle2_q;
       MMIO_UART_TX_OFFSET:       mmio_rdata = uart_tx_reg_q;
       MMIO_UART_STATUS_OFFSET:   mmio_rdata = uart_status_q;
       MMIO_BAD_ACCESS_OFFSET:    mmio_rdata = bad_access_q;
@@ -866,6 +932,9 @@ module kraken_soc_func import axi_pkg::*; #(
   assign core_0_req_o  = core_instr_req[0];
   assign mem_valid_o   = core_instr_rvalid[0] | core_data_rvalid[0];
   assign mem_data_o    = core_data_rvalid[0] ? core_data_rdata[0] : core_instr_rdata[0];
+  assign demo_status_o = mmio_demo_status_q;
+  assign demo_result_o = mmio_demo_result_q;
+  assign sne_activity_o = sne_busy | sne_done_seen_q | sne_error_seen_q | (sne_evt != 2'b00);
 
 endmodule
 
@@ -904,8 +973,9 @@ module kraken_soc_func_unified_mem #(
   always_ff @(posedge clk_i) begin
     porta_valid_q <= 1'b0;
     if (instr_req_i || dma_req_i) begin
-      // Use one read port for instruction/DMA traffic (instruction has priority).
-      porta_addr_q  <= instr_req_i ? instr_addr_i : dma_addr_i;
+      // When DMA is active, give it ownership of the shared read port so
+      // descriptor/payload fetches are deterministic during simulation.
+      porta_addr_q  <= dma_req_i ? dma_addr_i : instr_addr_i;
       porta_valid_q <= 1'b1;
     end
 

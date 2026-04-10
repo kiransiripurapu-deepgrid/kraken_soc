@@ -256,7 +256,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mini_kraken.srcs/sources_1/new/cutie_hwpe_wrap.sv">
+      <File Path="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/new/cutie_hwpe_wrap.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -858,7 +858,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mini_kraken.srcs/sources_1/new/prim_subreg.sv">
+      <File Path="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/new/prim_subreg.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -872,14 +872,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mini_kraken.srcs/sources_1/new/pulp_soc_defines.sv">
+      <File Path="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/new/pulp_soc_defines.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mini_kraken.srcs/sources_1/imports/cluster_rtl/pulp_interfaces.sv">
+      <File Path="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/imports/cluster_rtl/pulp_interfaces.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -921,7 +921,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mini_kraken.srcs/sources_1/new/sne_evt_fifo.sv">
+      <File Path="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/new/sne_evt_fifo.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -942,7 +942,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../mini_kraken.srcs/sources_1/new/sne_wrap.sv">
+      <File Path="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/new/sne_wrap.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -2275,9 +2275,9 @@
         <Option Name="VerilogDir" Val="$PPRDIR/../../include"/>
         <Option Name="VerilogDir" Val="$PPRDIR/../../ips/common_cells/include"/>
         <Option Name="VerilogDir" Val="$PPRDIR/../../ips/cv32e40p/include"/>
-        <Option Name="VerilogDir" Val="$PPRDIR/../../mini_kraken.srcs/sources_1/imports"/>
+        <Option Name="VerilogDir" Val="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/imports"/>
         <Option Name="VerilogDir" Val="$PPRDIR/../../ips/register_interface"/>
-        <Option Name="VerilogDir" Val="$PPRDIR/../../mini_kraken.srcs/sources_1/new"/>
+        <Option Name="VerilogDir" Val="$PPRDIR/../../DeepGrid_D100.srcs/sources_1/new"/>
         <Option Name="VerilogDir" Val="$PPRDIR/../../ips/sne/rtl/include"/>
         <Define Name="KRAKEN_FPGA_SYNTH_PROFILE"/>
         <Define Name="SLICES" Val="2"/>

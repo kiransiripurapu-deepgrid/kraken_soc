@@ -1,0 +1,55 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+L2_RAM           0x00000000         0x00040000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccFDdFJT.o
+LOAD /tmp/ccfoKUqW.o
+
+.text           0x00000000      0xba4
+ *(.init)
+ .init          0x00000000        0xc /tmp/ccFDdFJT.o
+                0x00000000                _start
+ *(.text*)
+ .text          0x0000000c        0x0 /tmp/ccFDdFJT.o
+ .text          0x0000000c       0x34 /tmp/ccfoKUqW.o
+ .text.startup  0x00000040      0x232 /tmp/ccfoKUqW.o
+                0x00000040                main
+ *(.rodata*)
+ *fill*         0x00000272        0x2 
+ .rodata        0x00000274      0x930 /tmp/ccfoKUqW.o
+
+.rela.dyn       0x00000ba4        0x0
+ .rela.init     0x00000ba4        0x0 /tmp/ccFDdFJT.o
+
+.data           0x00000ba4        0x0
+ *(.data*)
+ .data          0x00000ba4        0x0 /tmp/ccFDdFJT.o
+ .data          0x00000ba4        0x0 /tmp/ccfoKUqW.o
+
+.bss            0x00000ba4      0x948
+ *(.bss*)
+ .bss           0x00000ba4        0x0 /tmp/ccFDdFJT.o
+ .bss           0x00000ba4      0x948 /tmp/ccfoKUqW.o
+ *(COMMON)
+                0x000014f0                        . = ALIGN (0x10)
+                0x000014f0                        _end = .
+                0x00040000                        _stack_top = (ORIGIN (L2_RAM) + LENGTH (L2_RAM))
+OUTPUT(cutie_dma_smoke.elf elf32-littleriscv)
+
+.riscv.attributes
+                0x00000000       0x2f
+ .riscv.attributes
+                0x00000000       0x2d /tmp/ccFDdFJT.o
+ .riscv.attributes
+                0x0000002d       0x2f /tmp/ccfoKUqW.o
+
+.comment        0x00000000       0x22
+ .comment       0x00000000       0x22 /tmp/ccfoKUqW.o
+                                 0x23 (size before relaxing)

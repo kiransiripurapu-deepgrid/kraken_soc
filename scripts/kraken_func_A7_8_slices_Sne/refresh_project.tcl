@@ -52,8 +52,8 @@ set weightbuf_latch_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_
 set actmem_beh_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/sram_actmem_behavioural.sv"]
 set weightmem_beh_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/sram_weightmem_behavioural.sv"]
 set weightbuf_ff_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/weightbufferblock.sv"]
-set prim_subreg_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/mini_kraken.srcs/sources_1/new/prim_subreg.sv"]
-set sne_evt_fifo_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/mini_kraken.srcs/sources_1/new/sne_evt_fifo.sv"]
+set prim_subreg_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/DeepGrid_D100.srcs/sources_1/new/prim_subreg.sv"]
+set sne_evt_fifo_file [ensure_file_in_fileset sources_1 "C:/Users/kiran/fpga_project/mini_kraken/DeepGrid_D100.srcs/sources_1/new/sne_evt_fifo.sv"]
 
 puts "Forcing FF register file for FPGA synthesis..."
 set_property IS_ENABLED false $latch_rf_file

@@ -1,0 +1,54 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+L2_RAM           0x00000000         0x00040000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /tmp/ccD2RmJr.o
+LOAD /tmp/ccVXuSOs.o
+
+.text           0x00000000      0xdd8
+ *(.init)
+ .init          0x00000000        0xc /tmp/ccD2RmJr.o
+                0x00000000                _start
+ *(.text*)
+ .text          0x0000000c        0x0 /tmp/ccD2RmJr.o
+ .text          0x0000000c       0x34 /tmp/ccVXuSOs.o
+ .text.startup  0x00000040      0x468 /tmp/ccVXuSOs.o
+                0x00000040                main
+ *(.rodata*)
+ .rodata        0x000004a8      0x930 /tmp/ccVXuSOs.o
+
+.rela.dyn       0x00000dd8        0x0
+ .rela.init     0x00000dd8        0x0 /tmp/ccD2RmJr.o
+
+.data           0x00000dd8        0x0
+ *(.data*)
+ .data          0x00000dd8        0x0 /tmp/ccD2RmJr.o
+ .data          0x00000dd8        0x0 /tmp/ccVXuSOs.o
+
+.bss            0x00000dd8      0x948
+ *(.bss*)
+ .bss           0x00000dd8        0x0 /tmp/ccD2RmJr.o
+ .bss           0x00000dd8      0x948 /tmp/ccVXuSOs.o
+ *(COMMON)
+                0x00001720                        . = ALIGN (0x10)
+                0x00001720                        _end = .
+                0x00040000                        _stack_top = (ORIGIN (L2_RAM) + LENGTH (L2_RAM))
+OUTPUT(demo_mode.elf elf32-littleriscv)
+
+.riscv.attributes
+                0x00000000       0x2f
+ .riscv.attributes
+                0x00000000       0x2d /tmp/ccD2RmJr.o
+ .riscv.attributes
+                0x0000002d       0x2f /tmp/ccVXuSOs.o
+
+.comment        0x00000000       0x22
+ .comment       0x00000000       0x22 /tmp/ccVXuSOs.o
+                                 0x23 (size before relaxing)

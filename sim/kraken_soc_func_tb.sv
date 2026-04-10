@@ -37,14 +37,14 @@ module kraken_soc_func_tb;
   localparam time DRONET_STAGE12_SIM_TIME = 40us;
   localparam time DRONET_STAGE13_SIM_TIME = 40us;
   localparam time DRONET_STAGE14_SIM_TIME = 300us;
-  localparam bit STRICT_SINGLE_OUTSTANDING_MODE = 1'b0;
+  localparam bit STRICT_SINGLE_OUTSTANDING_MODE = 1'b1;
   localparam int DRONET_FULL_ACT_WORD_COUNT = 10000;
   localparam int DRONET_FULL_WEIGHT_WORD_COUNT = 41;
   localparam int DRONET_STAGE0_OUTPUT_WORD_COUNT = 10000;
   localparam string DRONET_FULL_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_full_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_full_act_words.hex";
   localparam string DRONET_FULL_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_full_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_full_weight_words.hex";
   localparam int DRONET_STAGE2_ACT_WORD_COUNT = 2500;
   localparam int DRONET_STAGE2_WEIGHT_WORD_COUNT = 25;
   localparam int DRONET_STAGE2_OUTPUT_WORD_COUNT = 625;
@@ -84,111 +84,111 @@ module kraken_soc_func_tb;
   localparam int DRONET_STAGE14_ACT_WORD_COUNT = 196;
   localparam int DRONET_STAGE14_WEIGHT_WORD_COUNT = 392;
   localparam string DRONET_STAGE2_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage2_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage2_act_words.hex";
   localparam string DRONET_STAGE2_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage2_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage2_weight_words.hex";
   localparam string DRONET_STAGE3_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage3_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage3_act_words.hex";
   localparam string DRONET_STAGE3_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage3_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage3_weight_words.hex";
   localparam string DRONET_STAGE4_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage4_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage4_act_words.hex";
   localparam string DRONET_STAGE4_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage4_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage4_weight_words.hex";
   localparam string DRONET_STAGE5_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage5_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage5_act_words.hex";
   localparam string DRONET_STAGE5_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage5_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage5_weight_words.hex";
   localparam string DRONET_STAGE6_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage6_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage6_act_words.hex";
   localparam string DRONET_STAGE6_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage6_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage6_weight_words.hex";
   localparam string DRONET_STAGE7_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage7_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage7_act_words.hex";
   localparam string DRONET_STAGE7_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage7_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage7_weight_words.hex";
   localparam string DRONET_STAGE8_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage8_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage8_act_words.hex";
   localparam string DRONET_STAGE8_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage8_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage8_weight_words.hex";
   localparam string DRONET_STAGE9_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage9_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage9_act_words.hex";
   localparam string DRONET_STAGE9_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage9_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage9_weight_words.hex";
   localparam string DRONET_STAGE10_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage10_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage10_act_words.hex";
   localparam string DRONET_STAGE10_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage10_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage10_weight_words.hex";
   localparam string DRONET_STAGE11_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage11_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage11_act_words.hex";
   localparam string DRONET_STAGE11_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage11_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage11_weight_words.hex";
   localparam string DRONET_STAGE12_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage12_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage12_act_words.hex";
   localparam string DRONET_STAGE12_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage12_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage12_weight_words.hex";
   localparam string DRONET_STAGE13_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage13_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage13_act_words.hex";
   localparam string DRONET_STAGE13_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage13_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage13_weight_words.hex";
   localparam string DRONET_STAGE14_ACT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage14_act_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage14_act_words.hex";
   localparam string DRONET_STAGE14_WEIGHT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/cutie_dronet_stage14_weight_words.hex";
+    "sw/dronet_v3/generated/cutie_dronet_stage14_weight_words.hex";
   localparam string DRONET_STAGE4_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage4_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage4_output_bank0_words.hex";
   localparam string DRONET_STAGE4_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage4_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage4_output_bank1_words.hex";
   localparam string DRONET_STAGE5_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage5_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage5_output_bank0_words.hex";
   localparam string DRONET_STAGE5_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage5_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage5_output_bank1_words.hex";
   localparam string DRONET_STAGE6_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage6_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage6_output_bank0_words.hex";
   localparam string DRONET_STAGE6_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage6_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage6_output_bank1_words.hex";
   localparam string DRONET_STAGE7_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage7_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage7_output_bank0_words.hex";
   localparam string DRONET_STAGE7_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage7_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage7_output_bank1_words.hex";
   localparam string DRONET_STAGE8_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage8_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage8_output_bank0_words.hex";
   localparam string DRONET_STAGE8_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage8_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage8_output_bank1_words.hex";
   localparam string DRONET_STAGE9_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage9_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage9_output_bank0_words.hex";
   localparam string DRONET_STAGE9_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage9_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage9_output_bank1_words.hex";
   localparam string DRONET_STAGE10_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage10_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage10_output_bank0_words.hex";
   localparam string DRONET_STAGE10_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage10_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage10_output_bank1_words.hex";
   localparam string DRONET_STAGE11_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage11_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage11_output_bank0_words.hex";
   localparam string DRONET_STAGE11_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage11_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage11_output_bank1_words.hex";
   localparam string DRONET_STAGE12_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage12_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage12_output_bank0_words.hex";
   localparam string DRONET_STAGE12_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage12_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage12_output_bank1_words.hex";
   localparam string DRONET_STAGE13_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage13_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage13_output_bank0_words.hex";
   localparam string DRONET_STAGE13_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage13_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage13_output_bank1_words.hex";
   localparam string DRONET_STAGE3_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage3_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage3_output_bank0_words.hex";
   localparam string DRONET_STAGE3_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage3_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage3_output_bank1_words.hex";
   localparam string DRONET_STAGE2_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage2_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage2_output_bank0_words.hex";
   localparam string DRONET_STAGE2_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage2_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage2_output_bank1_words.hex";
   localparam string DRONET_STAGE0_OUTPUT_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage0_output_words.hex";
   localparam string DRONET_STAGE0_OUTPUT_BANK0_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage0_output_bank0_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage0_output_bank0_words.hex";
   localparam string DRONET_STAGE0_OUTPUT_BANK1_HEX =
-    "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/generated/layer_payloads/stage0_output_bank1_words.hex";
+    "sw/dronet_v3/generated/layer_payloads/stage0_output_bank1_words.hex";
 
   // ═══════════════════════════════════════════════════════════════════════
   // Testbench Signals
@@ -209,6 +209,9 @@ module kraken_soc_func_tb;
   // CUTIE Accelerator Outputs
   logic          cutie_busy_o;
   logic [1:0]    cutie_evt_o;
+  logic [31:0]   demo_status_o;
+  logic [31:0]   demo_result_o;
+  logic          sne_activity_o;
 
   // Force dependency inclusion for Vivado sim compile-order pruning.
   logic          force_fifo_clk;
@@ -245,6 +248,7 @@ module kraken_soc_func_tb;
   int            reset_cycle_count = 0;
   int            cycles_after_reset = 0;
   string         mem_init_file;
+  string         project_root;
   logic          dronet_debug_mode = 1'b0;
   logic [31:0]   dronet_full_act_words [0:DRONET_FULL_ACT_WORD_COUNT-1];
   logic [31:0]   dronet_full_weight_words [0:DRONET_FULL_WEIGHT_WORD_COUNT-1];
@@ -297,73 +301,117 @@ module kraken_soc_func_tb;
   logic          stage12_output_dump_done_q = 1'b0;
   logic          stage13_output_dump_done_q = 1'b0;
 
+  function automatic string normalize_path(input string path);
+    string result;
+    for (int i = 0; i < path.len(); i++) begin
+      byte ch = path[i];
+      if (ch == "\\")
+        result = {result, "/"};
+      else
+        result = {result, ch};
+    end
+    return result;
+  endfunction
+
+  function automatic logic path_has_suffix(input string path, input string suffix);
+    string norm_path;
+    string norm_suffix;
+    int path_len;
+    int suffix_len;
+    norm_path = normalize_path(path);
+    norm_suffix = normalize_path(suffix);
+    path_len = norm_path.len();
+    suffix_len = norm_suffix.len();
+    if (path_len < suffix_len)
+      return 1'b0;
+    return (norm_path.substr(path_len - suffix_len, path_len - 1) == norm_suffix);
+  endfunction
+
+  function automatic string derive_project_root(input string path);
+    string norm_path;
+    norm_path = normalize_path(path);
+    for (int i = 0; i <= (norm_path.len() - 4); i++) begin
+      if (norm_path.substr(i, i + 3) == "/sw/")
+        return norm_path.substr(0, i - 1);
+    end
+    return ".";
+  endfunction
+
+  function automatic string repo_path(input string rel_path);
+    string norm_rel;
+    norm_rel = normalize_path(rel_path);
+    if ((project_root == "") || (project_root == "."))
+      return norm_rel;
+    return {normalize_path(project_root), "/", norm_rel};
+  endfunction
+
   function automatic logic is_dronet_stage0_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage0_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage0_preload.mem");
   endfunction
 
   function automatic logic is_dronet_full_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_full_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_full_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage2_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage2_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage2_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage3_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage3_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage3_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage4_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage4_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage4_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage5_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage5_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage5_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage6_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage6_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage6_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage7_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage7_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage7_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage8_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage8_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage8_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage9_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage9_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage9_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage10_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage10_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage10_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage11_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage11_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage11_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage12_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage12_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage12_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage13_preload_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage13_preload.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage13_preload.mem");
   endfunction
 
   function automatic logic is_dronet_stage14_software_mem(input string path);
-    return (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage14_software.mem");
+    return path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage14_software.mem");
   endfunction
 
   function automatic logic is_dronet_stage14_hardware_preload_mem(input string path);
-    return ((path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage14_hardware_preload.mem") ||
-            (path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_full_hardware.mem"));
+    return (path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage14_hardware_preload.mem") ||
+            path_has_suffix(path, "/sw/dronet_v3/dronet_v3_full_hardware.mem"));
   endfunction
 
   function automatic logic is_dronet_stage0_like_mem(input string path);
-    return ((path == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage0.mem") ||
+    return (path_has_suffix(path, "/sw/dronet_v3/dronet_v3_stage0.mem") ||
             is_dronet_stage0_preload_mem(path));
   endfunction
 
@@ -487,8 +535,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage0/full payload", $time);
-      $readmemh(DRONET_FULL_ACT_HEX, dronet_full_act_words);
-      $readmemh(DRONET_FULL_WEIGHT_HEX, dronet_full_weight_words);
+      $readmemh(repo_path(DRONET_FULL_ACT_HEX), dronet_full_act_words);
+      $readmemh(repo_path(DRONET_FULL_WEIGHT_HEX), dronet_full_weight_words);
 
       for (int i = 0; i < DRONET_FULL_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_FULL_ACT_WORD_COUNT) ? dronet_full_act_words[i + 1] : 32'd0;
@@ -508,8 +556,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage2 payload", $time);
-      $readmemh(DRONET_STAGE2_ACT_HEX, dronet_stage2_act_words);
-      $readmemh(DRONET_STAGE2_WEIGHT_HEX, dronet_stage2_weight_words);
+      $readmemh(repo_path(DRONET_STAGE2_ACT_HEX), dronet_stage2_act_words);
+      $readmemh(repo_path(DRONET_STAGE2_WEIGHT_HEX), dronet_stage2_weight_words);
 
       for (int i = 0; i < DRONET_STAGE2_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE2_ACT_WORD_COUNT) ? dronet_stage2_act_words[i + 1] : 32'd0;
@@ -529,8 +577,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage3 payload", $time);
-      $readmemh(DRONET_STAGE3_ACT_HEX, dronet_stage3_act_words);
-      $readmemh(DRONET_STAGE3_WEIGHT_HEX, dronet_stage3_weight_words);
+      $readmemh(repo_path(DRONET_STAGE3_ACT_HEX), dronet_stage3_act_words);
+      $readmemh(repo_path(DRONET_STAGE3_WEIGHT_HEX), dronet_stage3_weight_words);
 
       for (int i = 0; i < DRONET_STAGE3_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE3_ACT_WORD_COUNT) ? dronet_stage3_act_words[i + 1] : 32'd0;
@@ -550,8 +598,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage4 payload", $time);
-      $readmemh(DRONET_STAGE4_ACT_HEX, dronet_stage4_act_words);
-      $readmemh(DRONET_STAGE4_WEIGHT_HEX, dronet_stage4_weight_words);
+      $readmemh(repo_path(DRONET_STAGE4_ACT_HEX), dronet_stage4_act_words);
+      $readmemh(repo_path(DRONET_STAGE4_WEIGHT_HEX), dronet_stage4_weight_words);
 
       for (int i = 0; i < DRONET_STAGE4_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE4_ACT_WORD_COUNT) ? dronet_stage4_act_words[i + 1] : 32'd0;
@@ -571,8 +619,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage5 payload", $time);
-      $readmemh(DRONET_STAGE5_ACT_HEX, dronet_stage5_act_words);
-      $readmemh(DRONET_STAGE5_WEIGHT_HEX, dronet_stage5_weight_words);
+      $readmemh(repo_path(DRONET_STAGE5_ACT_HEX), dronet_stage5_act_words);
+      $readmemh(repo_path(DRONET_STAGE5_WEIGHT_HEX), dronet_stage5_weight_words);
 
       for (int i = 0; i < DRONET_STAGE5_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE5_ACT_WORD_COUNT) ? dronet_stage5_act_words[i + 1] : 32'd0;
@@ -592,8 +640,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage6 payload", $time);
-      $readmemh(DRONET_STAGE6_ACT_HEX, dronet_stage6_act_words);
-      $readmemh(DRONET_STAGE6_WEIGHT_HEX, dronet_stage6_weight_words);
+      $readmemh(repo_path(DRONET_STAGE6_ACT_HEX), dronet_stage6_act_words);
+      $readmemh(repo_path(DRONET_STAGE6_WEIGHT_HEX), dronet_stage6_weight_words);
 
       for (int i = 0; i < DRONET_STAGE6_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE6_ACT_WORD_COUNT) ? dronet_stage6_act_words[i + 1] : 32'd0;
@@ -613,8 +661,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage7 payload", $time);
-      $readmemh(DRONET_STAGE7_ACT_HEX, dronet_stage7_act_words);
-      $readmemh(DRONET_STAGE7_WEIGHT_HEX, dronet_stage7_weight_words);
+      $readmemh(repo_path(DRONET_STAGE7_ACT_HEX), dronet_stage7_act_words);
+      $readmemh(repo_path(DRONET_STAGE7_WEIGHT_HEX), dronet_stage7_weight_words);
       for (int i = 0; i < DRONET_STAGE7_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE7_ACT_WORD_COUNT) ? dronet_stage7_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage7_act_words[i], hi_word);
@@ -631,8 +679,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage8 payload", $time);
-      $readmemh(DRONET_STAGE8_ACT_HEX, dronet_stage8_act_words);
-      $readmemh(DRONET_STAGE8_WEIGHT_HEX, dronet_stage8_weight_words);
+      $readmemh(repo_path(DRONET_STAGE8_ACT_HEX), dronet_stage8_act_words);
+      $readmemh(repo_path(DRONET_STAGE8_WEIGHT_HEX), dronet_stage8_weight_words);
       for (int i = 0; i < DRONET_STAGE8_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE8_ACT_WORD_COUNT) ? dronet_stage8_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage8_act_words[i], hi_word);
@@ -649,8 +697,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage9 payload", $time);
-      $readmemh(DRONET_STAGE9_ACT_HEX, dronet_stage9_act_words);
-      $readmemh(DRONET_STAGE9_WEIGHT_HEX, dronet_stage9_weight_words);
+      $readmemh(repo_path(DRONET_STAGE9_ACT_HEX), dronet_stage9_act_words);
+      $readmemh(repo_path(DRONET_STAGE9_WEIGHT_HEX), dronet_stage9_weight_words);
       for (int i = 0; i < DRONET_STAGE9_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE9_ACT_WORD_COUNT) ? dronet_stage9_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage9_act_words[i], hi_word);
@@ -667,8 +715,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage10 payload", $time);
-      $readmemh(DRONET_STAGE10_ACT_HEX, dronet_stage10_act_words);
-      $readmemh(DRONET_STAGE10_WEIGHT_HEX, dronet_stage10_weight_words);
+      $readmemh(repo_path(DRONET_STAGE10_ACT_HEX), dronet_stage10_act_words);
+      $readmemh(repo_path(DRONET_STAGE10_WEIGHT_HEX), dronet_stage10_weight_words);
       for (int i = 0; i < DRONET_STAGE10_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE10_ACT_WORD_COUNT) ? dronet_stage10_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage10_act_words[i], hi_word);
@@ -685,8 +733,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage11 payload", $time);
-      $readmemh(DRONET_STAGE11_ACT_HEX, dronet_stage11_act_words);
-      $readmemh(DRONET_STAGE11_WEIGHT_HEX, dronet_stage11_weight_words);
+      $readmemh(repo_path(DRONET_STAGE11_ACT_HEX), dronet_stage11_act_words);
+      $readmemh(repo_path(DRONET_STAGE11_WEIGHT_HEX), dronet_stage11_weight_words);
       for (int i = 0; i < DRONET_STAGE11_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE11_ACT_WORD_COUNT) ? dronet_stage11_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage11_act_words[i], hi_word);
@@ -703,8 +751,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage12 payload", $time);
-      $readmemh(DRONET_STAGE12_ACT_HEX, dronet_stage12_act_words);
-      $readmemh(DRONET_STAGE12_WEIGHT_HEX, dronet_stage12_weight_words);
+      $readmemh(repo_path(DRONET_STAGE12_ACT_HEX), dronet_stage12_act_words);
+      $readmemh(repo_path(DRONET_STAGE12_WEIGHT_HEX), dronet_stage12_weight_words);
       for (int i = 0; i < DRONET_STAGE12_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE12_ACT_WORD_COUNT) ? dronet_stage12_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage12_act_words[i], hi_word);
@@ -721,8 +769,8 @@ module kraken_soc_func_tb;
     logic [31:0] hi_word;
     begin
       $display("@%0tns: Preloading CUTIE memories for exported stage13 payload", $time);
-      $readmemh(DRONET_STAGE13_ACT_HEX, dronet_stage13_act_words);
-      $readmemh(DRONET_STAGE13_WEIGHT_HEX, dronet_stage13_weight_words);
+      $readmemh(repo_path(DRONET_STAGE13_ACT_HEX), dronet_stage13_act_words);
+      $readmemh(repo_path(DRONET_STAGE13_WEIGHT_HEX), dronet_stage13_weight_words);
       for (int i = 0; i < DRONET_STAGE13_ACT_WORD_COUNT; i += 2) begin
         hi_word = (i + 1 < DRONET_STAGE13_ACT_WORD_COUNT) ? dronet_stage13_act_words[i + 1] : 32'd0;
         cutie_force_write_act_pair(i >> 1, dronet_stage13_act_words[i], hi_word);
@@ -738,8 +786,8 @@ module kraken_soc_func_tb;
   task automatic preload_cutie_stage14_payload;
       begin
         $display("@%0tns: Preloading CUTIE memories for exported stage14 payload", $time);
-        $readmemh(DRONET_STAGE14_ACT_HEX, dronet_stage14_act_words);
-        $readmemh(DRONET_STAGE14_WEIGHT_HEX, dronet_stage14_weight_words);
+        $readmemh(repo_path(DRONET_STAGE14_ACT_HEX), dronet_stage14_act_words);
+        $readmemh(repo_path(DRONET_STAGE14_WEIGHT_HEX), dronet_stage14_weight_words);
         for (int i = 0; i < DRONET_STAGE14_ACT_WORD_COUNT; i++) begin
           DUT.i_cutie.linear_act_mem[i] = dronet_stage14_act_words[i];
         end
@@ -829,7 +877,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE0_OUTPUT_BANK0_HEX : DRONET_STAGE0_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage0 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd == 0) begin
           $display("@%0tns: ERROR: failed to open %s for stage0 dump", $time, dump_path);
         end else begin
@@ -855,7 +903,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE2_OUTPUT_BANK0_HEX : DRONET_STAGE2_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage2 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd == 0) begin
           $display("@%0tns: ERROR: failed to open %s for stage2 dump", $time, dump_path);
         end else begin
@@ -881,7 +929,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE3_OUTPUT_BANK0_HEX : DRONET_STAGE3_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage3 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd == 0) begin
           $display("@%0tns: ERROR: failed to open %s for stage3 dump", $time, dump_path);
         end else begin
@@ -907,7 +955,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE4_OUTPUT_BANK0_HEX : DRONET_STAGE4_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage4 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd == 0) begin
           $display("@%0tns: ERROR: failed to open %s for stage4 dump", $time, dump_path);
         end else begin
@@ -933,7 +981,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE5_OUTPUT_BANK0_HEX : DRONET_STAGE5_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage5 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd == 0) begin
           $display("@%0tns: ERROR: failed to open %s for stage5 dump", $time, dump_path);
         end else begin
@@ -959,7 +1007,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE6_OUTPUT_BANK0_HEX : DRONET_STAGE6_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage6 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd == 0) begin
           $display("@%0tns: ERROR: failed to open %s for stage6 dump", $time, dump_path);
         end else begin
@@ -985,7 +1033,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE7_OUTPUT_BANK0_HEX : DRONET_STAGE7_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage7 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE7_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1009,7 +1057,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE8_OUTPUT_BANK0_HEX : DRONET_STAGE8_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage8 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE8_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1033,7 +1081,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE9_OUTPUT_BANK0_HEX : DRONET_STAGE9_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage9 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE9_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1057,7 +1105,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE10_OUTPUT_BANK0_HEX : DRONET_STAGE10_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage10 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE10_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1081,7 +1129,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE11_OUTPUT_BANK0_HEX : DRONET_STAGE11_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage11 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE11_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1105,7 +1153,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE12_OUTPUT_BANK0_HEX : DRONET_STAGE12_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage12 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE12_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1129,7 +1177,7 @@ module kraken_soc_func_tb;
       for (bankset = 0; bankset < 2; bankset++) begin
         dump_path = (bankset == 0) ? DRONET_STAGE13_OUTPUT_BANK0_HEX : DRONET_STAGE13_OUTPUT_BANK1_HEX;
         $display("@%0tns: Dumping stage13 CUTIE output words from bankset %0d to %s", $time, bankset, dump_path);
-        fd = $fopen(dump_path, "w");
+        fd = $fopen(repo_path(dump_path), "w");
         if (fd != 0) begin
           for (int i = 0; i < DRONET_STAGE13_OUTPUT_WORD_COUNT; i += 2) begin
             cutie_force_read_act_pair(bankset, i >> 1, word_pair);
@@ -1163,7 +1211,10 @@ module kraken_soc_func_tb;
     .mem_valid_o   ( mem_valid_o   ),
     .mem_data_o    ( mem_data_o    ),
     .cutie_busy_o  ( cutie_busy_o  ),
-    .cutie_evt_o   ( cutie_evt_o   )
+    .cutie_evt_o   ( cutie_evt_o   ),
+    .demo_status_o ( demo_status_o ),
+    .demo_result_o ( demo_result_o ),
+    .sne_activity_o( sne_activity_o )
   );
 
   // ═══════════════════════════════════════════════════════════════════════
@@ -1183,13 +1234,19 @@ module kraken_soc_func_tb;
   end
 
   initial begin
-    if (!$value$plusargs("MEM_INIT_FILE=%s", mem_init_file)) begin
-      mem_init_file = "C:/Users/kiran/fpga_project/mini_kraken/sw/basic/hello.mem";
+    if (!$value$plusargs("PROJECT_ROOT=%s", project_root)) begin
+      project_root = "";
     end
-    dronet_debug_mode = ((mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/multimodal_smoke/multimodal_smoke.mem") ||
-                         (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_driver.mem") ||
-                         (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_smoke.mem") ||
-                         (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage0.mem") ||
+    if (!$value$plusargs("MEM_INIT_FILE=%s", mem_init_file)) begin
+      mem_init_file = repo_path("sw/basic/hello.mem");
+    end
+    if ((project_root == "") && (mem_init_file != "")) begin
+      project_root = derive_project_root(mem_init_file);
+    end
+    dronet_debug_mode = ((path_has_suffix(mem_init_file, "/sw/multimodal_smoke/multimodal_smoke.mem")) ||
+                         (path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_driver.mem")) ||
+                         (path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_smoke.mem")) ||
+                         (path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_stage0.mem")) ||
                          is_dronet_stage0_preload_mem(mem_init_file) ||
                          is_dronet_stage2_preload_mem(mem_init_file) ||
                          is_dronet_stage3_preload_mem(mem_init_file) ||
@@ -1205,8 +1262,8 @@ module kraken_soc_func_tb;
                          is_dronet_stage13_preload_mem(mem_init_file) ||
                          is_dronet_stage14_hardware_preload_mem(mem_init_file) ||
                          is_dronet_stage14_software_mem(mem_init_file) ||
-                         (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_partial.mem") ||
-                         (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_full.mem") ||
+                         (path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_partial.mem")) ||
+                         (path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_full.mem")) ||
                          is_dronet_full_preload_mem(mem_init_file));
     if (mem_init_file != "") begin
       $display("@%0tns: Preloading firmware image from %s", $time, mem_init_file);
@@ -1257,7 +1314,7 @@ module kraken_soc_func_tb;
     else if (is_dronet_stage13_preload_mem(mem_init_file))
       preload_cutie_stage13_payload();
     else if (is_dronet_stage14_hardware_preload_mem(mem_init_file) ||
-             (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/multimodal_smoke/multimodal_smoke.mem"))
+             path_has_suffix(mem_init_file, "/sw/multimodal_smoke/multimodal_smoke.mem"))
       preload_cutie_stage14_payload();
 
     // Wait for RESET_CYCLES clock edges
@@ -1320,6 +1377,8 @@ module kraken_soc_func_tb;
   logic saw_scratch0_cafebabe = 1'b0;
   logic saw_scratch1_0badf00d = 1'b0;
   logic saw_uart_a_write = 1'b0;
+  logic saw_uart_b_write = 1'b0;
+  logic saw_uart_c_write = 1'b0;
   logic saw_uart_s_write = 1'b0;
   logic saw_dronet_scratch0 = 1'b0;
   logic saw_dronet_scratch1 = 1'b0;
@@ -1483,6 +1542,10 @@ module kraken_soc_func_tb;
         saw_firmware_done_status = 1'b1;
       if ((DUT.core_data_addr[0] == 32'h1A10_000C) && (DUT.core_data_wdata[0][7:0] == 8'h41))
         saw_uart_a_write = 1'b1;
+      if ((DUT.core_data_addr[0] == 32'h1A10_000C) && (DUT.core_data_wdata[0][7:0] == 8'h42))
+        saw_uart_b_write = 1'b1;
+      if ((DUT.core_data_addr[0] == 32'h1A10_000C) && (DUT.core_data_wdata[0][7:0] == 8'h43))
+        saw_uart_c_write = 1'b1;
       if ((DUT.core_data_addr[0] == 32'h1A10_000C) && (DUT.core_data_wdata[0][7:0] == 8'h53))
         saw_uart_s_write = 1'b1;
       if ((DUT.core_data_addr[0] == 32'h1A10_000C) && (DUT.core_data_wdata[0][7:0] == 8'h4D))
@@ -1809,6 +1872,7 @@ module kraken_soc_func_tb;
   
   initial begin
     logic is_hello_firmware;
+    logic is_demo_mode_firmware;
     logic is_sne_smoke_firmware;
     logic is_sne_dma_smoke_firmware;
     logic is_cutie_dma_smoke_firmware;
@@ -1837,15 +1901,16 @@ module kraken_soc_func_tb;
       logic is_dronet_full_firmware;
       logic is_dronet_full_preload_firmware;
 
-    is_hello_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/basic/hello.mem");
-    is_sne_smoke_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/sne_smoke/sne_smoke.mem");
-    is_sne_dma_smoke_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/sne_dma_smoke/sne_dma_smoke.mem");
-    is_cutie_dma_smoke_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/cutie_dma_smoke/cutie_dma_smoke.mem");
-    is_multimodal_smoke_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/multimodal_smoke/multimodal_smoke.mem");
-    is_hw_opt_smoke_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/hw_opt_smoke/hw_opt_smoke.mem");
-    is_dronet_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_driver.mem");
-    is_dronet_smoke_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_smoke.mem");
-    is_dronet_stage0_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_stage0.mem");
+    is_hello_firmware = path_has_suffix(mem_init_file, "/sw/basic/hello.mem");
+    is_demo_mode_firmware = path_has_suffix(mem_init_file, "/sw/demo_mode/demo_mode.mem");
+    is_sne_smoke_firmware = path_has_suffix(mem_init_file, "/sw/sne_smoke/sne_smoke.mem");
+    is_sne_dma_smoke_firmware = path_has_suffix(mem_init_file, "/sw/sne_dma_smoke/sne_dma_smoke.mem");
+    is_cutie_dma_smoke_firmware = path_has_suffix(mem_init_file, "/sw/cutie_dma_smoke/cutie_dma_smoke.mem");
+    is_multimodal_smoke_firmware = path_has_suffix(mem_init_file, "/sw/multimodal_smoke/multimodal_smoke.mem");
+    is_hw_opt_smoke_firmware = path_has_suffix(mem_init_file, "/sw/hw_opt_smoke/hw_opt_smoke.mem");
+    is_dronet_firmware = path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_driver.mem");
+    is_dronet_smoke_firmware = path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_smoke.mem");
+    is_dronet_stage0_firmware = path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_stage0.mem");
     is_dronet_stage0_preload_firmware = is_dronet_stage0_preload_mem(mem_init_file);
     is_dronet_stage2_preload_firmware = is_dronet_stage2_preload_mem(mem_init_file);
     is_dronet_stage3_preload_firmware = is_dronet_stage3_preload_mem(mem_init_file);
@@ -1861,13 +1926,15 @@ module kraken_soc_func_tb;
       is_dronet_stage13_preload_firmware = is_dronet_stage13_preload_mem(mem_init_file);
       is_dronet_stage14_hardware_preload_firmware = is_dronet_stage14_hardware_preload_mem(mem_init_file);
       is_dronet_stage14_software_firmware = is_dronet_stage14_software_mem(mem_init_file);
-      is_dronet_full_hardware_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_full_hardware.mem");
-      is_dronet_partial_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_partial.mem");
-      is_dronet_full_firmware = (mem_init_file == "C:/Users/kiran/fpga_project/mini_kraken/sw/dronet_v3/dronet_v3_full.mem");
+      is_dronet_full_hardware_firmware = path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_full_hardware.mem");
+      is_dronet_partial_firmware = path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_partial.mem");
+      is_dronet_full_firmware = path_has_suffix(mem_init_file, "/sw/dronet_v3/dronet_v3_full.mem");
       is_dronet_full_preload_firmware = is_dronet_full_preload_mem(mem_init_file);
 
     if (is_sne_smoke_firmware)
       #(SNE_SIM_TIME);
+    else if (is_demo_mode_firmware)
+      #(CUTIE_DMA_SIM_TIME + SNE_SIM_TIME + 50us);
     else if (is_sne_dma_smoke_firmware)
       #(SNE_DMA_SIM_TIME);
     else if (is_cutie_dma_smoke_firmware)
@@ -1954,6 +2021,40 @@ module kraken_soc_func_tb;
           $display("Firmware profile: hello");
           $display("  profile_checkpoint=%s",
              (saw_scratch0_cafebabe && saw_scratch1_0badf00d && saw_uart_a_write) ? "PASS" : "FAIL");
+        end else if (is_demo_mode_firmware) begin
+          $display("FIRMWARE checkpoint writes:");
+          $display("  demo_status=%08x demo_result=%08x uart_B=%s uart_M=%s uart_C=%s uart_S=%s uart_P=%s uart_F=%s",
+             demo_status_o,
+             demo_result_o,
+             saw_uart_b_write ? "YES" : "NO",
+             saw_uart_m_write ? "YES" : "NO",
+             saw_uart_c_write ? "YES" : "NO",
+             saw_uart_s_write ? "YES" : "NO",
+             saw_uart_p_write ? "YES" : "NO",
+             saw_uart_f_write ? "YES" : "NO");
+          $display("  cutie_sig=%08x out0=%08x out1=%08x",
+             DUT.mmio_demo_cutie_sig_q,
+             DUT.mmio_demo_cutie_out0_q,
+             DUT.mmio_demo_cutie_out1_q);
+          $display("  cycle0=%0d cycle1=%0d cycle2=%0d dma_done=%0d dma_error=%0d sne_activity=%0d",
+             DUT.mmio_demo_cycle0_q,
+             DUT.mmio_demo_cycle1_q,
+             DUT.mmio_demo_cycle2_q,
+             DUT.dma_done_count_q,
+             DUT.dma_error_count_q,
+             sne_activity_o);
+          $display("Firmware profile: demo_mode");
+          $display("  profile_checkpoint=%s",
+             ((demo_status_o & 32'h0000_001F) == 32'h0000_001F &&
+              demo_result_o[31] == 1'b0 &&
+              demo_result_o[0] == 1'b1 &&
+              saw_uart_b_write && saw_uart_m_write && saw_uart_c_write &&
+              saw_uart_s_write && saw_uart_p_write && !saw_uart_f_write &&
+              DUT.mmio_demo_cutie_sig_q == 32'h0000_14D6 &&
+              DUT.mmio_demo_cutie_out0_q == 32'h0000_0094 &&
+              DUT.mmio_demo_cutie_out1_q == 32'h0000_0A21 &&
+              DUT.dma_done_count_q >= 2 &&
+              DUT.dma_error_count_q == 0) ? "PASS" : "FAIL");
         end else if (is_sne_smoke_firmware) begin
           $display("FIRMWARE checkpoint writes:");
           $display("  sne_start=%s sne_pass=%s sne_readback_fail=%s sne_fail=%s",

@@ -37,8 +37,8 @@ set weightbuf_latch_path "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/
 set actmem_beh_path "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/sram_actmem_behavioural.sv"
 set weightmem_beh_path "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/sram_weightmem_behavioural.sv"
 set weightbuf_ff_path "C:/Users/kiran/fpga_project/mini_kraken/ips/cutie/rtl/weightbufferblock.sv"
-set prim_subreg_path "C:/Users/kiran/fpga_project/mini_kraken/mini_kraken.srcs/sources_1/new/prim_subreg.sv"
-set sne_evt_fifo_path "C:/Users/kiran/fpga_project/mini_kraken/mini_kraken.srcs/sources_1/new/sne_evt_fifo.sv"
+set prim_subreg_path "C:/Users/kiran/fpga_project/mini_kraken/DeepGrid_D100.srcs/sources_1/new/prim_subreg.sv"
+set sne_evt_fifo_path "C:/Users/kiran/fpga_project/mini_kraken/DeepGrid_D100.srcs/sources_1/new/sne_evt_fifo.sv"
 
 set latch_rf_file [get_files -quiet $latch_rf_path]
 set ff_rf_file    [get_files -quiet $ff_rf_path]

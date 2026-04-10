@@ -116,7 +116,7 @@ puts "Added $added SNE IP source files."
 
 # ── 5. sne_wrap.sv (explicit, in case VerilogDir glob missed it) ──────────────
 set sne_wrap [file normalize \
-    [file join $repo_root "mini_kraken.srcs/sources_1/new/sne_wrap.sv"]]
+    [file join $repo_root "DeepGrid_D100.srcs/sources_1/new/sne_wrap.sv"]]
 add_files -norecurse -fileset sources_1 $sne_wrap
 
 # ── 6. Refresh compile order ──────────────────────────────────────────────────

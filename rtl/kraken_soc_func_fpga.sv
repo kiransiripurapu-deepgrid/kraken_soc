@@ -10,6 +10,9 @@ module kraken_soc_func_fpga (
   logic        mem_seen_q;
   logic        cutie_done_seen_q;
   logic        cutie_timeout_seen_q;
+  logic [31:0] demo_status_dbg;
+  logic [31:0] demo_result_dbg;
+  logic        sne_activity_dbg;
   logic [31:0] core_0_addr_dbg;
   logic [31:0] core_0_data_dbg;
   logic        core_0_req_dbg;
@@ -28,7 +31,10 @@ module kraken_soc_func_fpga (
     .mem_valid_o   ( mem_valid_dbg  ),
     .mem_data_o    ( mem_data_dbg   ),
     .cutie_busy_o  ( cutie_busy_dbg ),
-    .cutie_evt_o   ( cutie_evt_dbg  )
+    .cutie_evt_o   ( cutie_evt_dbg  ),
+    .demo_status_o ( demo_status_dbg ),
+    .demo_result_o ( demo_result_dbg ),
+    .sne_activity_o( sne_activity_dbg )
   );
 
   always_ff @(posedge clk_i or negedge rst_ni) begin
@@ -48,9 +54,9 @@ module kraken_soc_func_fpga (
         cutie_timeout_seen_q <= 1'b1;
 
       led_o[0] <= heartbeat_q[23];
-      led_o[1] <= mem_seen_q;
-      led_o[2] <= cutie_busy_dbg;
-      led_o[3] <= cutie_done_seen_q | cutie_timeout_seen_q;
+      led_o[1] <= cutie_busy_dbg;
+      led_o[2] <= sne_activity_dbg;
+      led_o[3] <= demo_result_dbg[0] | demo_result_dbg[31];
     end
   end
 

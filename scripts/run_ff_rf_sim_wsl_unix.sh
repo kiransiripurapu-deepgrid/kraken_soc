@@ -138,6 +138,9 @@ fi
 
 SIM_RUNTIME="${SIM_RUNTIME:-10us}"
 case "$(basename "$MEM_FILE")" in
+  demo_mode.mem)
+  SIM_RUNTIME="450us"
+  ;;
   sne_smoke.mem)
   SIM_RUNTIME="50us"
   ;;
@@ -206,6 +209,8 @@ PY
 
 RUN_DIR_WIN="$(wslpath -w "$RUN_DIR")"
 PRJ_RUN_WIN="$(wslpath -w "$PRJ_RUN")"
+ROOT_DIR_XSIM="$(wslpath -w "$ROOT_DIR")"
+ROOT_DIR_XSIM="${ROOT_DIR_XSIM//\\/\/}"
 
 echo "INFO: Running FF register-file simulation from $RUN_DIR"
 echo "INFO: Using firmware image $(wslpath -w "$MEM_FILE")"
@@ -218,7 +223,7 @@ else
 fi
 MEM_FILE_XSIM="$(wslpath -w "$MEM_FILE")"
 MEM_FILE_XSIM="${MEM_FILE_XSIM//\\/\/}"
-run_cmd "cd /D $RUN_DIR_WIN && call $XSIM_BAT kraken_soc_func_tb_ffrf_behav -testplusarg \"MEM_INIT_FILE=$MEM_FILE_XSIM\" -key Behavioral:sim_1:Functional:kraken_soc_func_tb -tclbatch kraken_soc_func_tb.tcl -log simulate_ffrf.log"
+run_cmd "cd /D $RUN_DIR_WIN && call $XSIM_BAT kraken_soc_func_tb_ffrf_behav -testplusarg \"MEM_INIT_FILE=$MEM_FILE_XSIM\" -testplusarg \"PROJECT_ROOT=$ROOT_DIR_XSIM\" -key Behavioral:sim_1:Functional:kraken_soc_func_tb -tclbatch kraken_soc_func_tb.tcl -log simulate_ffrf.log"
 
 SIM_LOG="$RUN_DIR/simulate_ffrf.log"
 if [[ ! -f "$SIM_LOG" ]]; then
@@ -228,7 +233,7 @@ fi
 
 echo
 echo "===== Simulation Summary ====="
-grep -E "FIRMWARE checkpoint writes:|scratch0_cafebabe=|sne_start=|uart_S=|dronet_scratch0=|dronet_stage0_scratch1=|dronet_stage2_scratch1=|dronet_stage3_scratch1=|dronet_stage4_scratch1=|dronet_stage5_scratch1=|dronet_stage6_scratch1=|dronet_stage7_scratch1=|dronet_stage8_scratch1=|dronet_stage9_scratch1=|dronet_stage10_scratch1=|dronet_stage11_scratch1=|dronet_stage12_scratch1=|dronet_stage13_scratch1=|dronet_stage14_scratch1=|stage0_sig=|stage14_sig=|cutie_done_evt=|cutie_timeout_evt=|Firmware profile:|profile_checkpoint=|FIRMWARE_BOOT_CHECK:|CUTIE Activity:|MMIO Activity Seen:|Main Region Fetch:|UART TX      <= 41|UART TX      <= 44|UART TX      <= 46|UART TX      <= 50|UART TX      <= 53|MMIO scratch0 <= cafebabe|MMIO scratch0 <= 534e4501|MMIO scratch0 <= 534e4502|MMIO scratch0 <= 534e45f0|MMIO scratch0 <= 534e45f1|MMIO scratch1 <= 0badf00d|MMIO scratch0 <= d203a101|MMIO scratch0 <= 000014d6|MMIO scratch1 <= 00040004|MMIO scratch1 <= 00c80504|MMIO scratch1 <= 00320304|MMIO scratch1 <= 00190104|MMIO scratch1 <= 00190304|MMIO scratch1 <= 05190104|MMIO scratch1 <= 06190304|MMIO scratch1 <= 07130108|MMIO scratch1 <= 08130308|MMIO scratch1 <= 09130108|MMIO scratch1 <= 0a070308|MMIO scratch1 <= 0b070110|MMIO scratch1 <= 0c070310|MMIO scratch1 <= 0d070110|MMIO scratch1 <= 0e010102|MMIO scratch1 <= 99b1e9c1|cutie_start_write=|linear_mode=|linear_words=|out0=|out1=|sig=" "$SIM_LOG" || true
+grep -E "FIRMWARE checkpoint writes:|scratch0_cafebabe=|sne_start=|uart_S=|dronet_scratch0=|dronet_stage0_scratch1=|dronet_stage2_scratch1=|dronet_stage3_scratch1=|dronet_stage4_scratch1=|dronet_stage5_scratch1=|dronet_stage6_scratch1=|dronet_stage7_scratch1=|dronet_stage8_scratch1=|dronet_stage9_scratch1=|dronet_stage10_scratch1=|dronet_stage11_scratch1=|dronet_stage12_scratch1=|dronet_stage13_scratch1=|dronet_stage14_scratch1=|stage0_sig=|stage14_sig=|cutie_done_evt=|cutie_timeout_evt=|Firmware profile:|profile_checkpoint=|FIRMWARE_BOOT_CHECK:|CUTIE Activity:|MMIO Activity Seen:|Main Region Fetch:|demo_status=|demo_result=|cycle0=|cutie_sig=|UART TX      <= 41|UART TX      <= 42|UART TX      <= 43|UART TX      <= 44|UART TX      <= 46|UART TX      <= 4d|UART TX      <= 50|UART TX      <= 53|MMIO scratch0 <= cafebabe|MMIO scratch0 <= 534e4501|MMIO scratch0 <= 534e4502|MMIO scratch0 <= 534e45f0|MMIO scratch0 <= 534e45f1|MMIO scratch0 <= 44454d4f|MMIO scratch0 <= 4d4d494f|MMIO scratch1 <= 0badf00d|MMIO scratch0 <= d203a101|MMIO scratch0 <= 000014d6|MMIO scratch1 <= 00040004|MMIO scratch1 <= 00c80504|MMIO scratch1 <= 00320304|MMIO scratch1 <= 00190104|MMIO scratch1 <= 00190304|MMIO scratch1 <= 05190104|MMIO scratch1 <= 06190304|MMIO scratch1 <= 07130108|MMIO scratch1 <= 08130308|MMIO scratch1 <= 09130108|MMIO scratch1 <= 0a070308|MMIO scratch1 <= 0b070110|MMIO scratch1 <= 0c070310|MMIO scratch1 <= 0d070110|MMIO scratch1 <= 0e010102|MMIO scratch1 <= 99b1e9c1|cutie_start_write=|linear_mode=|linear_words=|out0=|out1=|sig=" "$SIM_LOG" || true
 
 case "$(basename "$MEM_FILE")" in
   dronet_v3_stage14_hardware_preload.mem|dronet_v3_full_hardware.mem)
